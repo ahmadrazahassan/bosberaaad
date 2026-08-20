@@ -5,7 +5,7 @@ export const COMPLIANCE_ARTICLES = [
     title: "VAT201: what your accounting software has to get right",
     slug: "vat201-accounting-software-requirements",
     category_tag: "Compliance",
-    author: "sipho",
+    author: "kanizan",
     published_date: "2026-07-02",
     featured: true,
     excerpt:
@@ -40,7 +40,7 @@ export const COMPLIANCE_ARTICLES = [
     title: "POPIA and your business software: what actually applies",
     slug: "popia-business-software-compliance",
     category_tag: "Compliance",
-    author: "hanli",
+    author: "kinza",
     published_date: "2026-06-18",
     excerpt:
       "Every vendor claims POPIA compliance. Here is what the Act actually requires of the systems you buy, and the questions that separate a real answer from a marketing one.",
@@ -76,7 +76,7 @@ export const COMPLIANCE_ARTICLES = [
     title: "ETI: the calculation your payroll system must get right",
     slug: "eti-employment-tax-incentive-payroll",
     category_tag: "Compliance",
-    author: "reneile",
+    author: "haseeba",
     published_date: "2026-06-03",
     excerpt:
       "The Employment Tax Incentive is worth real money and the calculation is fiddly. Here is how it works and how to check your payroll is doing it correctly.",
@@ -109,7 +109,7 @@ export const COMPLIANCE_ARTICLES = [
     title: "BCEA leave rules and why imported HR software gets them wrong",
     slug: "bcea-leave-rules-hr-software",
     category_tag: "Compliance",
-    author: "reneile",
+    author: "haseeba",
     published_date: "2026-05-20",
     excerpt:
       "Annual, sick and family responsibility leave under the BCEA, and the specific configuration failures that produce wrong balances in international HR systems.",
@@ -146,7 +146,7 @@ export const COMPLIANCE_ARTICLES = [
     title: "SARS eFiling integration: which accounting packages actually connect",
     slug: "sars-efiling-accounting-software-integration",
     category_tag: "Compliance",
-    author: "sipho",
+    author: "kanizan",
     published_date: "2026-04-22",
     excerpt:
       "The difference between software that produces a VAT201 report and software that submits one, and what that difference costs across a year.",
@@ -182,7 +182,7 @@ export const COMPLIANCE_ARTICLES = [
     title: "What load shedding should change about your software choices",
     slug: "load-shedding-business-software-choices",
     category_tag: "Opinion",
-    author: "hanli",
+    author: "kinza",
     published_date: "2026-04-09",
     excerpt:
       "Cloud software assumes a connection. In a country where the connection is not guaranteed, that assumption deserves more scrutiny than it usually gets.",
@@ -216,7 +216,7 @@ export const COMPLIANCE_ARTICLES = [
     title: "Do you have to give your accountant a licence? What software access really costs",
     slug: "accountant-access-software-licences",
     category_tag: "Practical",
-    author: "sipho",
+    author: "kanizan",
     published_date: "2026-03-26",
     excerpt:
       "Free accountant access sounds like a small feature until you price a second seat. Here is how each major package handles it.",
@@ -241,7 +241,7 @@ export const COMPLIANCE_ARTICLES = [
     title: "Bank feeds in South Africa: which banks work with which software",
     slug: "bank-feeds-south-africa-accounting-software",
     category_tag: "Practical",
-    author: "sipho",
+    author: "kanizan",
     published_date: "2026-03-12",
     excerpt:
       "A direct feed and a scheduled import are not the same thing. Coverage across Absa, FNB, Standard Bank, Nedbank, Capitec, Investec and TymeBank.",

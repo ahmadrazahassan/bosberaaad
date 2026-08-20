@@ -220,9 +220,11 @@ export default async function AboutPage() {
                       {person.name}
                     </h3>
                     <p className="text-sm text-[var(--color-brand-dark)]">{person.title}</p>
-                    <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
-                      {person.bio}
-                    </p>
+                    {person.bio ? (
+                      <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
+                        {person.bio}
+                      </p>
+                    ) : null}
                   </div>
                 </div>
               );

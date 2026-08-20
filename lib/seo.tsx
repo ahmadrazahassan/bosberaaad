@@ -1,5 +1,14 @@
 import type { Faq } from "@/lib/faq";
-import { SITE_DESCRIPTION, SITE_NAME, SITE_URL, SOCIAL_LINKS } from "@/lib/site";
+import {
+  CONTACT_EMAIL,
+  CONTACT_PHONE,
+  SITE_ADDRESS,
+  SITE_DESCRIPTION,
+  SITE_FOUNDER,
+  SITE_NAME,
+  SITE_URL,
+  SOCIAL_LINKS,
+} from "@/lib/site";
 import type { Article, Review, Software } from "@/lib/types";
 import { stripHtml, truncate } from "@/lib/utils";
 
@@ -25,6 +34,23 @@ export function organisationSchema() {
     url: SITE_URL,
     description: SITE_DESCRIPTION,
     areaServed: { "@type": "Country", name: "South Africa" },
+    founder: { "@type": "Person", name: SITE_FOUNDER },
+    address: {
+      "@type": "PostalAddress",
+      streetAddress: SITE_ADDRESS.street,
+      addressLocality: SITE_ADDRESS.locality,
+      addressRegion: SITE_ADDRESS.region,
+      postalCode: SITE_ADDRESS.postalCode,
+      addressCountry: "ZA",
+    },
+    contactPoint: {
+      "@type": "ContactPoint",
+      contactType: "customer support",
+      telephone: CONTACT_PHONE.replace(/\s/g, ""),
+      email: CONTACT_EMAIL,
+      areaServed: "ZA",
+      availableLanguage: ["en"],
+    },
     sameAs: Object.values(SOCIAL_LINKS),
   };
 }
@@ -138,7 +164,7 @@ export function articleSchema(article: Article) {
       "@type": "Person",
       name: article.author_name,
       jobTitle: article.author_title,
-      description: article.author_bio,
+      ...(article.author_bio ? { description: article.author_bio } : {}),
     },
     publisher: { "@id": `${SITE_URL}/#organization` },
     mainEntityOfPage: {

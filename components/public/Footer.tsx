@@ -5,7 +5,8 @@ import { CountryFlag } from "@/components/public/CountryFlag";
 import {
   CONTACT_EMAIL,
   CONTACT_PHONE,
-  SITE_LOCATION,
+  SITE_ADDRESS,
+  SITE_LOCALITY,
   SITE_NAME,
   SITE_TAGLINE,
 } from "@/lib/site";
@@ -99,10 +100,13 @@ export function Footer() {
               <div className="flex flex-col gap-3 text-sm">
                 <h3 className="flex items-center gap-2 font-semibold text-foreground">
                   <CountryFlag country="South Africa" />
-                  Cape Town
+                  {SITE_LOCALITY}
                 </h3>
                 <address className="flex flex-col text-muted-foreground not-italic">
-                  <span>{SITE_LOCATION}</span>
+                  <span>{SITE_ADDRESS.street}</span>
+                  <span>
+                    {SITE_ADDRESS.region} {SITE_ADDRESS.postalCode}
+                  </span>
                   <a
                     href={`tel:${CONTACT_PHONE.replace(/\s/g, "")}`}
                     className="tabular-nums transition-colors hover:text-foreground"

@@ -1,4 +1,11 @@
-import { CONTACT_EMAIL, CONTACT_PHONE, SITE_DOMAIN, SITE_LOCATION, SITE_NAME } from "@/lib/site";
+import {
+  CONTACT_EMAIL,
+  CONTACT_PHONE,
+  INFORMATION_OFFICER,
+  SITE_DOMAIN,
+  SITE_LOCATION,
+  SITE_NAME,
+} from "@/lib/site";
 import type { StaticPage } from "@/lib/types";
 
 const UPDATED = "2026-07-01T00:00:00.000Z";
@@ -32,7 +39,7 @@ export const STATIC_PAGES: StaticPage[] = [
       <p>Last updated ${UPDATED_LABEL}. This policy explains what personal information ${SITE_NAME} collects, why we collect it, what we do with it and what rights you have under the Protection of Personal Information Act 4 of 2013.</p>
 
       <h2>Who we are</h2>
-      <p>${SITE_NAME} is an independent business software review and comparison publication based in ${SITE_LOCATION}. We are the responsible party for the personal information described in this policy. Our information officer can be reached at <a href="mailto:${CONTACT_EMAIL}">${CONTACT_EMAIL}</a> or on ${CONTACT_PHONE}.</p>
+      <p>${SITE_NAME} is an independent business software review and comparison publication based in ${SITE_LOCATION}. We are the responsible party for the personal information described in this policy. Our information officer is ${INFORMATION_OFFICER}, who can be reached at <a href="mailto:${CONTACT_EMAIL}">${CONTACT_EMAIL}</a> or on ${CONTACT_PHONE}.</p>
 
       <h2>What we collect</h2>
       <h3>Information you give us</h3>
@@ -311,7 +318,7 @@ export const STATIC_PAGES: StaticPage[] = [
           <tr><th>Telephone</th><td>${CONTACT_PHONE}</td></tr>
           <tr><th>Email</th><td>${CONTACT_EMAIL}</td></tr>
           <tr><th>Website</th><td>${SITE_DOMAIN}</td></tr>
-          <tr><th>Information officer</th><td>The Editor, contactable at ${CONTACT_EMAIL}</td></tr>
+          <tr><th>Information officer</th><td>${INFORMATION_OFFICER}, contactable at ${CONTACT_EMAIL}</td></tr>
         </tbody>
       </table>
 

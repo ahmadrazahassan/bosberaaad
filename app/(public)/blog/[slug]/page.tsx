@@ -151,9 +151,11 @@ export default async function ArticlePage(props: PageProps<"/blog/[slug]">) {
                     {article.author_title}
                   </span>
                 </p>
+                {article.author_bio ? (
                 <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
                   {article.author_bio}
                 </p>
+              ) : null}
               </div>
             </div>
           </footer>

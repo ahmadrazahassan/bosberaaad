@@ -7,8 +7,34 @@ export const SITE_NAME = "Bosberaaad";
 export const SITE_DOMAIN = "bosberaaad.co.za";
 export const SITE_TAGLINE = "South Africa's independent business software guide";
 export const CONTACT_EMAIL = "hello@bosberaaad.co.za";
-export const CONTACT_PHONE = "+27 21 300 4820";
-export const SITE_LOCATION = "Cape Town, South Africa";
+export const CONTACT_PHONE = "+27 78 083 9764";
+
+/**
+ * The registered address, kept structured because three different consumers
+ * need three different shapes of it: the PAIA manual needs the full postal
+ * form, schema.org needs discrete fields, and the footer needs a short label.
+ */
+export const SITE_ADDRESS = {
+  street: "Knysna St",
+  locality: "Baviaans Local Municipality",
+  region: "Eastern Cape",
+  postalCode: "6445",
+  country: "South Africa",
+} as const;
+
+/** Short form, for headings and captions. */
+export const SITE_LOCALITY = `${SITE_ADDRESS.locality}, ${SITE_ADDRESS.region}`;
+
+/** Full form, used wherever a physical address has to be stated in full. */
+export const SITE_LOCATION = `${SITE_ADDRESS.street}, ${SITE_ADDRESS.locality}, ${SITE_ADDRESS.region} ${SITE_ADDRESS.postalCode}, ${SITE_ADDRESS.country}`;
+
+/**
+ * The people accountable for what this site publishes. POPIA requires a named
+ * information officer, and PAIA requires that person be contactable, so the
+ * founder is named rather than described as "the Editor".
+ */
+export const SITE_FOUNDER = "Kinza Shahzad";
+export const INFORMATION_OFFICER = SITE_FOUNDER;
 export const SITE_LOCALE = "en-ZA";
 export const OG_LOCALE = "en_ZA";
 

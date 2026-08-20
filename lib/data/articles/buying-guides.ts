@@ -5,7 +5,7 @@ export const BUYING_GUIDES = [
     title: "Best accounting software in South Africa in 2026",
     slug: "best-accounting-software-south-africa",
     category_tag: "Buying guide",
-    author: "sipho",
+    author: "kanizan",
     published_date: "2026-07-08",
     featured: true,
     related_software_id: "sw-sage-accounting",
@@ -46,7 +46,7 @@ export const BUYING_GUIDES = [
     title: "Best payroll software in South Africa in 2026",
     slug: "best-payroll-software-south-africa",
     category_tag: "Buying guide",
-    author: "reneile",
+    author: "haseeba",
     published_date: "2026-06-24",
     featured: true,
     related_software_id: "sw-simplepay",
@@ -90,7 +90,7 @@ export const BUYING_GUIDES = [
     title: "Best CRM software for South African businesses",
     slug: "best-crm-software-south-africa",
     category_tag: "Buying guide",
-    author: "daniel",
+    author: "kinza",
     published_date: "2026-06-11",
     related_software_id: "sw-zoho-crm",
     excerpt:
@@ -131,7 +131,7 @@ export const BUYING_GUIDES = [
     title: "Best HR software for South African employers",
     slug: "best-hr-software-south-africa",
     category_tag: "Buying guide",
-    author: "reneile",
+    author: "haseeba",
     published_date: "2026-05-29",
     related_software_id: "sw-sage-hr",
     excerpt:
@@ -168,7 +168,7 @@ export const BUYING_GUIDES = [
     title: "Best project management software for South African teams",
     slug: "best-project-management-software-south-africa",
     category_tag: "Buying guide",
-    author: "daniel",
+    author: "kinza",
     published_date: "2026-05-14",
     related_software_id: "sw-asana",
     excerpt:
@@ -209,7 +209,7 @@ export const BUYING_GUIDES = [
     title: "Best ERP systems for South African manufacturers and distributors",
     slug: "best-erp-south-africa",
     category_tag: "Buying guide",
-    author: "sipho",
+    author: "kanizan",
     published_date: "2026-04-30",
     related_software_id: "sw-sage-200-evolution",
     excerpt:

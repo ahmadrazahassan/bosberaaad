@@ -4,29 +4,35 @@ import { readingTime, stripHtml, truncate } from "@/lib/utils";
 export type Author = {
   name: string;
   title: string;
-  bio: string;
+  /**
+   * Optional on purpose. A byline may carry a name and a role with no bio at
+   * all; what it may never carry is a bio somebody else wrote for it. Each
+   * person supplies their own, or the site shows none.
+   */
+  bio?: string;
 };
 
 export const AUTHORS: Record<string, Author> = {
-  hanli: {
-    name: "Hanli Marais",
-    title: "Editor",
-    bio: "Hanli spent eleven years as a financial journalist covering South African small business before starting Bosberaaad. She holds a BCom in accounting and has sat through more software demonstrations than she cares to count.",
+  /*
+   * Real people, named because POPIA and PAIA both require someone
+   * accountable and because a review is worth less when nobody signs it.
+   *
+   * TODO(bosberaaad): each person to supply their own bio. Nothing is written
+   * here on their behalf. Qualifications in particular must come from the
+   * person who holds them, and any protected designation (CA(SA), for one)
+   * must be verifiable with the body that awards it.
+   */
+  kinza: {
+    name: "Kinza Shahzad",
+    title: "Founder and editor",
   },
-  sipho: {
-    name: "Sipho Ndlovu",
-    title: "Senior reviewer, finance systems",
-    bio: "Sipho is a CA(SA) who spent eight years in practice before moving into systems consulting. He has implemented accounting and ERP software for businesses from four staff to four hundred.",
+  kanizan: {
+    name: "Kanizan Hassan",
+    title: "Reviewer",
   },
-  reneile: {
-    name: "Reneilwe Mokoena",
-    title: "Reviewer, payroll and HR",
-    bio: "Reneilwe has run payroll for organisations of up to twelve hundred employees and has completed more EMP501 reconciliations than anyone should. She writes about payroll, HR and South African labour compliance.",
-  },
-  daniel: {
-    name: "Daniel Petersen",
-    title: "Reviewer, sales and project systems",
-    bio: "Daniel has led sales operations at two South African software companies and now advises businesses on CRM and project management selection. He is unsentimental about tools nobody uses.",
+  haseeba: {
+    name: "Haseeba bibi",
+    title: "Reviewer",
   },
 };
 
@@ -56,7 +62,7 @@ export function defineArticle(seed: ArticleSeed): Article {
     category_tag: seed.category_tag,
     related_software_id: seed.related_software_id ?? null,
     author_name: author.name,
-    author_bio: author.bio,
+    author_bio: author.bio ?? "",
     author_avatar_url: null,
     author_title: author.title,
     meta_title: seed.meta_title ?? seed.title,

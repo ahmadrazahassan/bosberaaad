@@ -5,7 +5,7 @@ export const PRACTICAL_ARTICLES = [
     title: "Accounting software for sole traders in South Africa",
     slug: "accounting-software-sole-traders-south-africa",
     category_tag: "Buying guide",
-    author: "sipho",
+    author: "kanizan",
     published_date: "2026-07-15",
     excerpt:
       "Below the VAT threshold your requirements are genuinely simpler, and paying for a package built for a fifty person business is money wasted.",
@@ -33,7 +33,7 @@ export const PRACTICAL_ARTICLES = [
     title: "Payroll software for small employers under twenty staff",
     slug: "payroll-software-small-employers-south-africa",
     category_tag: "Buying guide",
-    author: "reneile",
+    author: "haseeba",
     published_date: "2026-07-01",
     excerpt:
       "Statutory obligations do not scale down. A five person employer files the same EMP201 as a five hundred person one, and needs software that does it correctly.",
@@ -67,7 +67,7 @@ export const PRACTICAL_ARTICLES = [
     title: "How much does business software actually cost in South Africa?",
     slug: "business-software-cost-south-africa",
     category_tag: "Practical",
-    author: "hanli",
+    author: "kinza",
     published_date: "2026-06-27",
     excerpt:
       "Sticker price, VAT, exchange rate exposure, seat bands, implementation and the renewal. A realistic three year budget for a fifteen person business.",
@@ -112,7 +112,7 @@ export const PRACTICAL_ARTICLES = [
     title: "Migrating accounting software without losing your history",
     slug: "migrating-accounting-software-guide",
     category_tag: "Practical",
-    author: "sipho",
+    author: "kanizan",
     published_date: "2026-06-06",
     excerpt:
       "A migration plan that survives an audit: what to move, what to archive, when to switch and how to prove the opening balances are right.",
@@ -152,7 +152,7 @@ export const PRACTICAL_ARTICLES = [
     title: "Free accounting software in South Africa: what you actually get",
     slug: "free-accounting-software-south-africa",
     category_tag: "Practical",
-    author: "sipho",
+    author: "kanizan",
     published_date: "2026-05-08",
     excerpt:
       "Three genuinely free options, what each one gives you, and the point at which free becomes more expensive than paying.",
@@ -179,7 +179,7 @@ export const PRACTICAL_ARTICLES = [
     title: "Should you buy accounting and payroll from the same vendor?",
     slug: "accounting-payroll-same-vendor",
     category_tag: "Opinion",
-    author: "reneile",
+    author: "haseeba",
     published_date: "2026-04-16",
     excerpt:
       "Bundling is convenient and it is not free. The case for and against buying your ledger and your payroll from one company.",
@@ -204,7 +204,7 @@ export const PRACTICAL_ARTICLES = [
     title: "The questions to ask an ERP implementation partner",
     slug: "erp-implementation-partner-questions",
     category_tag: "Practical",
-    author: "sipho",
+    author: "kanizan",
     published_date: "2026-03-19",
     excerpt:
       "In ERP the partner matters more than the product. Fourteen questions that separate a firm that will deliver from one that will learn on your project.",
@@ -246,7 +246,7 @@ export const PRACTICAL_ARTICLES = [
     title: "How we test and rate software at Bosberaaad",
     slug: "how-we-test-and-rate-software",
     category_tag: "Editorial",
-    author: "hanli",
+    author: "kinza",
     published_date: "2026-02-26",
     featured: true,
     excerpt:
@@ -279,7 +279,7 @@ export const PRACTICAL_ARTICLES = [
     title: "CRM adoption: why your team stopped using it",
     slug: "crm-adoption-why-teams-stop-using-it",
     category_tag: "Opinion",
-    author: "daniel",
+    author: "kinza",
     published_date: "2026-02-12",
     excerpt:
       "Failed CRM projects almost never fail because the software was incapable. Five causes, in the order we see them.",
@@ -308,7 +308,7 @@ export const PRACTICAL_ARTICLES = [
     title: "What to check before signing an annual software contract",
     slug: "annual-software-contract-checklist",
     category_tag: "Practical",
-    author: "hanli",
+    author: "kinza",
     published_date: "2026-01-29",
     excerpt:
       "Auto renewal, price uplift caps, data export rights and notice periods. The clauses that matter and the ones vendors expect you to negotiate.",
@@ -338,7 +338,7 @@ export const PRACTICAL_ARTICLES = [
     title: "Choosing software when your accountant and your team disagree",
     slug: "choosing-software-accountant-team-disagree",
     category_tag: "Opinion",
-    author: "hanli",
+    author: "kinza",
     published_date: "2026-01-15",
     excerpt:
       "Your accountant wants the system they know. Your team wants the one they enjoy. Both positions are legitimate and here is how to resolve them.",

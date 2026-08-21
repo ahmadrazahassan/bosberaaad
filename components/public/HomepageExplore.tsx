@@ -8,6 +8,7 @@ import { CategoryIcon } from "@/components/public/CategoryIcon";
 import { CtaButton } from "@/components/public/CtaButton";
 import { StarRating } from "@/components/public/ratings";
 import { SoftwareLogo } from "@/components/public/SoftwareLogo";
+import { Badge } from "@/components/ui/badge";
 import { formatNumber, startingPriceLabel } from "@/lib/format";
 import type { Category, Software } from "@/lib/types";
 import { cn } from "@/lib/utils";
@@ -97,6 +98,16 @@ export function HomepageExplore({ groups }: { groups: ExploreGroup[] }) {
                 <p className="line-clamp-2 text-sm leading-relaxed text-muted-foreground">
                   {software.tagline ?? software.description_short}
                 </p>
+
+                {(software.free_trial || software.free_version || software.demo_available) && (
+                  <div className="flex flex-wrap gap-1.5">
+                    {software.free_trial ? <Badge variant="success">Free trial</Badge> : null}
+                    {software.free_version ? <Badge variant="muted">Free plan</Badge> : null}
+                    {software.demo_available ? (
+                      <Badge variant="outline">Demo available</Badge>
+                    ) : null}
+                  </div>
+                )}
 
                 <p className="mt-auto font-heading text-lg font-bold tabular-nums tracking-tight">
                   {price.amount}

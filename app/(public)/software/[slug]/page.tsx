@@ -249,9 +249,11 @@ export default async function SoftwareProfilePage(props: PageProps<"/software/[s
                 title="Plans,"
                 highlight="priced in rand"
                 subtitle={
-                  software.price_vat_inclusive
-                    ? "Figures below include 15% VAT."
-                    : "Figures below exclude VAT. Add 15% for the amount that lands on your invoice."
+                  software.price_vat_inclusive === null
+                    ? "The vendor does not state a VAT basis publicly. Confirm tax treatment before purchase."
+                    : software.price_vat_inclusive
+                      ? "Figures below include 15% VAT."
+                      : "Figures below exclude VAT. Add 15% where South African VAT applies."
                 }
               />
 

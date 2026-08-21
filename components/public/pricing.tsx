@@ -10,7 +10,7 @@ import {
   TableHeader,
   TableRow,
 } from "@/components/ui/table";
-import { formatDate, formatPricePerPeriod } from "@/lib/format";
+import { formatDate, formatPricePerPeriod, vatLabel } from "@/lib/format";
 import type { Software } from "@/lib/types";
 import { cn } from "@/lib/utils";
 
@@ -57,9 +57,7 @@ export function PricingCards({ software }: { software: Software }) {
             <p className="mt-1 text-xs text-muted-foreground">
               {plan.price === null || plan.price === 0
                 ? " "
-                : plan.vat_inclusive
-                  ? "including VAT"
-                  : "excluding VAT"}
+                : vatLabel(plan.vat_inclusive)}
             </p>
           </div>
 
@@ -213,8 +211,9 @@ export function VendorSpecSheet({ software }: { software: Software }) {
     { label: "Support", value: software.support_types.join(", ") || "Not stated" },
     {
       label: "Free trial",
-      value: software.free_trial ? "Yes" : "No",
+      value: software.free_trial ? (software.trial_note ?? "Yes") : "No",
     },
+    { label: "Product demo", value: software.demo_available ? "Available" : "Not advertised" },
   ];
 
   return (
@@ -237,9 +236,7 @@ export function VendorSpecSheet({ software }: { software: Software }) {
         <p className="mt-1 text-xs text-muted-foreground">
           {software.starting_price === null || software.starting_price === 0
             ? "pricing quoted on request"
-            : software.price_vat_inclusive
-              ? "including VAT"
-              : "excluding VAT"}
+            : vatLabel(software.price_vat_inclusive)}
         </p>
       </div>
 

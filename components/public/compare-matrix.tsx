@@ -329,7 +329,11 @@ export function PricingPanels({ a, b }: { a: Software; b: Software }) {
                   {software.name}
                 </h3>
                 <p className="mt-0.5 text-xs text-muted-foreground">
-                  {software.price_vat_inclusive ? "Listed including VAT" : "Listed excluding VAT"}
+                  {software.price_vat_inclusive === null
+                    ? "VAT basis not stated"
+                    : software.price_vat_inclusive
+                      ? "Listed including VAT"
+                      : "Listed excluding VAT"}
                 </p>
               </div>
             </header>

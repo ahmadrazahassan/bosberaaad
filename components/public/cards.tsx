@@ -6,7 +6,7 @@ import { StarRating } from "@/components/public/ratings";
 import { SoftwareLogo } from "@/components/public/SoftwareLogo";
 import { Badge } from "@/components/ui/badge";
 import { FALLBACK_BRAND_COLOR, withAlpha } from "@/lib/brandColors";
-import { formatNumber, formatRating, startingPriceLabel } from "@/lib/format";
+import { formatNumber, formatRating, startingPriceLabel, vatLabel } from "@/lib/format";
 import type { Category, Software } from "@/lib/types";
 import { cn } from "@/lib/utils";
 
@@ -90,12 +90,13 @@ export function SoftwareListRow({
           <p className="text-xs text-muted-foreground">
             {price.isCustom || price.isFree
               ? price.note
-              : `${price.note}${software.price_vat_inclusive ? ", incl VAT" : ", excl VAT"}`}
+              : `${price.note}, ${vatLabel(software.price_vat_inclusive, true)}`}
           </p>
         </div>
         <div className="flex flex-wrap gap-1.5 sm:justify-end">
           {software.free_trial ? <Badge variant="success">Free trial</Badge> : null}
           {software.free_version ? <Badge variant="muted">Free plan</Badge> : null}
+          {software.demo_available ? <Badge variant="outline">Demo available</Badge> : null}
         </div>
       </div>
     </article>
@@ -342,5 +343,6 @@ export function StatusBadge({ software }: { software: Software }) {
   }
   if (software.free_version) return <Badge variant="muted">Free plan available</Badge>;
   if (software.free_trial) return <Badge variant="outline">Free trial</Badge>;
+  if (software.demo_available) return <Badge variant="outline">Demo available</Badge>;
   return null;
 }

@@ -29,7 +29,12 @@ export function buildFaqs(software: Software, distribution?: StarDistribution): 
       software.price_currency,
       software.billing_period,
     );
-    const vat = software.price_vat_inclusive ? "including VAT" : "excluding VAT";
+    const vat =
+      software.price_vat_inclusive === null
+        ? "with the VAT basis not stated by the vendor"
+        : software.price_vat_inclusive
+          ? "including VAT"
+          : "excluding VAT";
     const rand =
       software.price_currency === "ZAR"
         ? ""

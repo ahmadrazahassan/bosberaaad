@@ -5,11 +5,23 @@ import { AffiliateCTAButton } from "@/components/public/affiliate";
 import { CtaButton } from "@/components/public/CtaButton";
 import { SentimentBar, StarRating } from "@/components/public/ratings";
 import { SoftwareLogo } from "@/components/public/SoftwareLogo";
+import { Badge } from "@/components/ui/badge";
 import { FALLBACK_BRAND_COLOR } from "@/lib/brandColors";
 import { formatDate, formatNumber, startingPriceLabel } from "@/lib/format";
 import { sentimentFromDistribution } from "@/lib/queries/reviews";
 import type { Software, StarDistribution } from "@/lib/types";
 import { cn } from "@/lib/utils";
+
+function AvailabilityBadges({ software }: { software: Software }) {
+  if (!software.free_trial && !software.free_version && !software.demo_available) return null;
+  return (
+    <div className="flex flex-wrap gap-1.5">
+      {software.free_trial ? <Badge variant="success">Free trial</Badge> : null}
+      {software.free_version ? <Badge variant="muted">Free plan</Badge> : null}
+      {software.demo_available ? <Badge variant="outline">Demo available</Badge> : null}
+    </div>
+  );
+}
 
 /* ------------------------------------------------------------- VersusCard */
 
@@ -174,6 +186,8 @@ export function RankedCard({
         {software.tagline ?? software.description_short}
       </p>
 
+      <AvailabilityBadges software={software} />
+
       {sentiment ? (
         <SentimentBar
           positive={sentiment.positive}
@@ -256,6 +270,8 @@ export function FreshCheckCard({ software }: { software: Software }) {
       <p className="line-clamp-2 text-sm leading-relaxed text-muted-foreground">
         {software.tagline ?? software.description_short}
       </p>
+
+      <AvailabilityBadges software={software} />
 
       <div className="mt-auto border-t border-border pt-4">
         <p className="font-heading text-lg font-bold tabular-nums tracking-tight">

@@ -6,7 +6,7 @@ export type PricingPlan = {
   price: number | null;
   period: "month" | "year" | "once";
   /** Whether the quoted figure already includes 15% VAT. */
-  vat_inclusive: boolean;
+  vat_inclusive: boolean | null;
   description: string;
   features: string[];
   popular?: boolean;
@@ -42,9 +42,12 @@ export type Software = {
   price_currency: string;
   billing_period: string;
   /** Whether starting_price already includes 15% VAT. Vendors differ. */
-  price_vat_inclusive: boolean;
+  price_vat_inclusive: boolean | null;
   free_trial: boolean;
   free_version: boolean;
+  demo_available: boolean;
+  demo_url: string | null;
+  trial_note: string | null;
   pricing_plans: PricingPlan[];
   pricing_note?: string | null;
   /** ISO date the list price was last checked against the vendor's own page. */

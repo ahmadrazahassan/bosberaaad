@@ -80,6 +80,12 @@ export function startingPriceLabel(
   };
 }
 
+export function vatLabel(value: boolean | null, compact = false): string {
+  if (value === true) return compact ? "incl VAT" : "including VAT";
+  if (value === false) return compact ? "excl VAT" : "excluding VAT";
+  return compact ? "VAT not stated" : "VAT basis not stated";
+}
+
 export function formatNumber(value: number | null | undefined): string {
   if (value === null || value === undefined || Number.isNaN(value)) return "0";
   return value.toLocaleString(SITE_LOCALE).replace(GROUPING_SPACES, NBSP);

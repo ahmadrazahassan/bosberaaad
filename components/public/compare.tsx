@@ -11,7 +11,7 @@ import {
   TableHeader,
   TableRow,
 } from "@/components/ui/table";
-import { formatNumber, formatRating, startingPriceLabel } from "@/lib/format";
+import { formatNumber, formatRating, startingPriceLabel, vatLabel } from "@/lib/format";
 import { RATING_DIMENSIONS } from "@/lib/site";
 import type { Software } from "@/lib/types";
 import { cn } from "@/lib/utils";
@@ -69,7 +69,7 @@ export function CompareHeader({ a, b }: { a: Software; b: Software }) {
                 <p className="text-xs text-muted-foreground">
                   {price.isCustom || price.isFree
                     ? price.note
-                    : `${price.note}, ${software.price_vat_inclusive ? "incl VAT" : "excl VAT"}`}
+                    : `${price.note}, ${vatLabel(software.price_vat_inclusive, true)}`}
                 </p>
               </div>
 

@@ -55,9 +55,15 @@ export function rowToSoftware(row: Row): Software {
       : asNumber(row.starting_price),
     price_currency: asText(row.price_currency) || "ZAR",
     billing_period: asText(row.billing_period) || "month",
-    price_vat_inclusive: Boolean(row.price_vat_inclusive),
+    price_vat_inclusive:
+      row.price_vat_inclusive === null || row.price_vat_inclusive === undefined
+        ? null
+        : Boolean(row.price_vat_inclusive),
     free_trial: Boolean(row.free_trial),
     free_version: Boolean(row.free_version),
+    demo_available: Boolean(row.demo_available),
+    demo_url: typeof row.demo_url === "string" ? row.demo_url : null,
+    trial_note: typeof row.trial_note === "string" ? row.trial_note : null,
     pricing_plans: Array.isArray(row.pricing_plans)
       ? (row.pricing_plans as Software["pricing_plans"])
       : [],

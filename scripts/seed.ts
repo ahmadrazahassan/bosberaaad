@@ -75,6 +75,9 @@ async function main() {
       pricing_note: item.pricing_note,
       free_trial: item.free_trial,
       free_version: item.free_version,
+      demo_available: item.demo_available,
+      demo_url: item.demo_url,
+      trial_note: item.trial_note,
       pricing_plans: item.pricing_plans,
 
       features: item.features,

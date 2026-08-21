@@ -99,10 +99,11 @@ export default async function ComparePairPage(props: PageProps<"/compare/[pair]"
         },
         {
           label: "VAT basis",
-          a: text(a.price_vat_inclusive ? "Incl VAT" : "Excl VAT"),
-          b: text(b.price_vat_inclusive ? "Incl VAT" : "Excl VAT"),
+          a: text(a.price_vat_inclusive === null ? "Not stated" : a.price_vat_inclusive ? "Incl VAT" : "Excl VAT"),
+          b: text(b.price_vat_inclusive === null ? "Not stated" : b.price_vat_inclusive ? "Incl VAT" : "Excl VAT"),
         },
         { label: "Free trial", a: bool(a.free_trial), b: bool(b.free_trial) },
+        { label: "Product demo", a: bool(a.demo_available), b: bool(b.demo_available) },
         { label: "Free plan", a: bool(a.free_version), b: bool(b.free_version) },
         {
           label: "Published plans",

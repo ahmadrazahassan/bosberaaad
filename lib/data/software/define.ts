@@ -1,6 +1,7 @@
 import { productScreenshots } from "@/lib/assets";
 import { getBrandColor } from "@/lib/brandColors";
 import type { Software } from "@/lib/types";
+import { COMMERCIAL_OVERRIDES } from "./commercial";
 
 /**
  * Input shape for a catalogue entry. Everything the reviewer must decide is
@@ -19,13 +20,16 @@ export type SoftwareSeed = {
   description_full: string;
 
   starting_price: number | null;
-  price_vat_inclusive: boolean;
+  price_vat_inclusive: boolean | null;
   billing_period?: "month" | "year";
   price_currency?: string;
   pricing_note?: string;
   price_checked_at?: string;
   free_trial?: boolean;
   free_version?: boolean;
+  demo_available?: boolean;
+  demo_url?: string;
+  trial_note?: string;
   pricing_plans: Software["pricing_plans"];
 
   top_features: string[];
@@ -59,6 +63,8 @@ export type SoftwareSeed = {
 const DEFAULT_COUNTRIES = ["South Africa", "Namibia", "Botswana", "Zimbabwe", "Zambia"];
 
 export function defineSoftware(seed: SoftwareSeed): Software {
+  const commercial = COMMERCIAL_OVERRIDES[seed.slug];
+  const record = { ...seed, ...commercial };
   return {
     id: `sw-${seed.slug}`,
     name: seed.name,
@@ -72,23 +78,26 @@ export function defineSoftware(seed: SoftwareSeed): Software {
     screenshots: productScreenshots(seed.slug, []),
     category_id: seed.category_id,
 
-    starting_price: seed.starting_price,
-    price_currency: seed.price_currency ?? "ZAR",
-    billing_period: seed.billing_period ?? "month",
-    price_vat_inclusive: seed.price_vat_inclusive,
-    free_trial: seed.free_trial ?? false,
-    free_version: seed.free_version ?? false,
-    pricing_plans: seed.pricing_plans,
-    pricing_note: seed.pricing_note ?? null,
-    price_checked_at: seed.price_checked_at ?? "2026-08-12",
+    starting_price: record.starting_price,
+    price_currency: record.price_currency ?? "ZAR",
+    billing_period: record.billing_period ?? "month",
+    price_vat_inclusive: record.price_vat_inclusive,
+    free_trial: record.free_trial ?? false,
+    free_version: record.free_version ?? false,
+    demo_available: record.demo_available ?? false,
+    demo_url: record.demo_url ?? null,
+    trial_note: record.trial_note ?? null,
+    pricing_plans: record.pricing_plans,
+    pricing_note: record.pricing_note ?? null,
+    price_checked_at: record.price_checked_at ?? "2026-08-12",
 
     features: seed.features,
     top_features: seed.top_features,
     integrations: seed.integrations,
     brand_color: getBrandColor(seed.slug),
 
-    affiliate_url: seed.affiliate_url ?? seed.vendor_website,
-    vendor_website: seed.vendor_website,
+    affiliate_url: record.affiliate_url ?? record.vendor_website,
+    vendor_website: record.vendor_website,
     vendor_name: seed.vendor_name,
     founded_year: seed.founded_year,
     support_types: seed.support_types,

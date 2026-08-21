@@ -19,11 +19,18 @@ const NAV_LINKS = [
   { href: "/about", label: "About" },
 ];
 
-/** Scrolled past this and the capsule gains its frosted background. */
-const FROST_AT = 8;
 /** Scrolling down past this hides the bar. */
 const HIDE_AT = 120;
 
+/**
+ * The header has no bar behind it. Every control is its own floating capsule,
+ * so the page shows through the gaps between them.
+ *
+ * That only works if each capsule carries its own surface. The reference this
+ * follows sits over one still photograph, where an outline alone is enough.
+ * Ours sits over copy that scrolls underneath, so each pill takes a near opaque
+ * fill and a blur. The bar is transparent; the pills are not.
+ */
 export function Navbar({ searchIndex }: { searchIndex: SearchIndexEntry[] }) {
   const pathname = usePathname();
   const [hidden, setHidden] = React.useState(false);
@@ -31,23 +38,6 @@ export function Navbar({ searchIndex }: { searchIndex: SearchIndexEntry[] }) {
   const [searchOpen, setSearchOpen] = React.useState(false);
 
   const lastScroll = React.useRef(0);
-  const listRef = React.useRef<HTMLUListElement>(null);
-  const [pill, setPill] = React.useState<{ left: number; width: number } | null>(null);
-
-  /**
-   * Scroll position is external state, so it is read through
-   * useSyncExternalStore rather than mirrored into React state by an effect.
-   * That also means a page loaded already scrolled, from an anchor link or a
-   * refresh, is frosted on the first paint rather than after the first scroll.
-   */
-  const scrolled = React.useSyncExternalStore(
-    (onChange) => {
-      window.addEventListener("scroll", onChange, { passive: true });
-      return () => window.removeEventListener("scroll", onChange);
-    },
-    () => window.scrollY > FROST_AT,
-    () => false,
-  );
 
   /* Hide going down, reveal going up. This needs the previous position. */
   React.useEffect(() => {
@@ -67,45 +57,15 @@ export function Navbar({ searchIndex }: { searchIndex: SearchIndexEntry[] }) {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
-  /**
-   * The sticky section nav on profile pages needs to know whether the header
-   * is on screen so it can sit flush. A data attribute on the document element
-   * is the cheapest way to share that without a context provider.
-   */
-  React.useEffect(() => {
-    document.documentElement.dataset.headerHidden = hidden ? "true" : "false";
-  }, [hidden]);
-
-  /* Measure the active link and slide the pill to it. */
-  const measurePill = React.useCallback(() => {
-    const list = listRef.current;
-    if (!list) return;
-
-    const active = list.querySelector<HTMLElement>("[data-active='true']");
-    if (!active) {
-      setPill(null);
-      return;
-    }
-
-    const listBox = list.getBoundingClientRect();
-    const activeBox = active.getBoundingClientRect();
-    setPill({ left: activeBox.left - listBox.left, width: activeBox.width });
-  }, []);
-
-  React.useEffect(() => {
-    measurePill();
-  }, [pathname, measurePill]);
-
-  React.useEffect(() => {
-    window.addEventListener("resize", measurePill);
-    return () => window.removeEventListener("resize", measurePill);
-  }, [measurePill]);
-
   const isActive = (href: string) => pathname === href || pathname.startsWith(`${href}/`);
   // The directory, category pages and profiles all belong under Software.
   const activeHref =
     NAV_LINKS.find((link) => isActive(link.href))?.href ??
     (pathname.startsWith("/category") ? "/categories" : undefined);
+
+  /** One capsule. Shared so the nav links, search and menu button match. */
+  const capsule =
+    "rounded-full border border-border bg-background/80 backdrop-blur-xl transition-colors";
 
   return (
     <>
@@ -115,90 +75,100 @@ export function Navbar({ searchIndex }: { searchIndex: SearchIndexEntry[] }) {
           hidden && "-translate-y-[130%]",
         )}
       >
-        <div className="container-site">
-          <div
-            className={cn(
-              "flex h-16 items-center justify-between gap-4 rounded-2xl border px-3 transition-all duration-300 sm:px-4",
-              scrolled
-                ? "border-border/80 bg-background/85 shadow-[0_18px_40px_-24px_rgba(15,23,42,0.45)] backdrop-blur-xl"
-                : "border-transparent bg-transparent",
-            )}
+        <div className="container-site relative flex h-14 items-center justify-between gap-3">
+          {/* Logo, in a solid capsule of its own */}
+          <BrandLogo
+            className={cn(capsule, "h-12 shrink-0 gap-2.5 bg-background pr-5 pl-2.5")}
+            showWordmark
+            markClassName="size-8"
+          />
+
+          {/*
+           * Centred on the bar itself rather than balanced between its
+           * neighbours, because the logo and the CTA are not the same width and
+           * the reference has this group dead centre.
+           *
+           * Only from xl though. Taken out of the flow it stops pushing its
+           * neighbours, and below 1280 the centred group runs straight through
+           * the search button. Between lg and xl it stays in the flow and lets
+           * justify-between space it instead.
+           */}
+          <nav
+            aria-label="Primary"
+            className="hidden lg:block xl:absolute xl:left-1/2 xl:-translate-x-1/2"
           >
-            <BrandLogo
-              className="shrink-0"
-              showWordmark
-              markClassName="size-8"
-            />
+            <ul className="flex items-center gap-2">
+              {NAV_LINKS.map((link) => {
+                const active = activeHref === link.href;
+                return (
+                  <li key={link.href}>
+                    <Link
+                      href={link.href}
+                      aria-current={active ? "page" : undefined}
+                      className={cn(
+                        "inline-flex h-11 items-center rounded-full border px-5 text-sm font-medium backdrop-blur-xl transition-colors",
+                        active
+                          ? "border-transparent bg-foreground text-background"
+                          : "border-border bg-background/80 text-foreground hover:border-foreground/25",
+                      )}
+                    >
+                      {link.label}
+                    </Link>
+                  </li>
+                );
+              })}
+            </ul>
+          </nav>
 
-            <nav aria-label="Primary" className="hidden lg:block">
-              <ul ref={listRef} className="relative flex items-center gap-1">
-                {pill ? (
-                  <span
-                    aria-hidden="true"
-                    className="absolute inset-y-0 -z-10 rounded-xl bg-muted transition-all duration-300 ease-out"
-                    style={{ left: pill.left, width: pill.width }}
-                  />
-                ) : null}
-                {NAV_LINKS.map((link) => {
-                  const active = activeHref === link.href;
-                  return (
-                    <li key={link.href}>
-                      <Link
-                        href={link.href}
-                        data-active={active ? "true" : "false"}
-                        aria-current={active ? "page" : undefined}
-                        className={cn(
-                          "inline-flex h-10 items-center rounded-xl px-4 text-sm font-medium transition-colors",
-                          active ? "text-foreground" : "text-muted-foreground hover:text-foreground",
-                        )}
-                      >
-                        {link.label}
-                      </Link>
-                    </li>
-                  );
-                })}
-              </ul>
-            </nav>
+          <div className="flex shrink-0 items-center gap-2">
+            <button
+              type="button"
+              onClick={() => setSearchOpen(true)}
+              className={cn(
+                capsule,
+                "grid size-11 place-items-center text-foreground hover:border-foreground/25",
+              )}
+              aria-label="Search"
+            >
+              <SearchIcon className="size-4" aria-hidden="true" />
+            </button>
 
-            <div className="flex shrink-0 items-center gap-2">
-              <button
-                type="button"
-                onClick={() => setSearchOpen(true)}
-                className="grid size-10 place-items-center rounded-xl border border-border bg-background text-muted-foreground transition-colors hover:border-[var(--color-brand)] hover:bg-[var(--color-brand-deep)] hover:text-[var(--color-brand-ink)]"
-                aria-label="Search"
-              >
-                <SearchIcon className="size-4" aria-hidden="true" />
-              </button>
+            <CtaButton
+              href="/contact?subject=listing"
+              size="sm"
+              className="hidden h-11 md:inline-flex"
+            >
+              List your software
+            </CtaButton>
 
-              <CtaButton href="/contact?subject=listing" size="sm" className="hidden md:inline-flex">
-                List your software
-              </CtaButton>
-
-
-              <button
-                type="button"
-                onClick={() => setMenuOpen((open) => !open)}
-                className="grid size-10 place-items-center rounded-xl border border-border bg-background text-muted-foreground transition-colors hover:text-foreground lg:hidden"
-                aria-expanded={menuOpen}
-                aria-controls="mobile-menu"
-                aria-label={menuOpen ? "Close menu" : "Open menu"}
-              >
-                {menuOpen ? (
-                  <XIcon className="size-4" aria-hidden="true" />
-                ) : (
-                  <MenuIcon className="size-4" aria-hidden="true" />
-                )}
-              </button>
-            </div>
+            <button
+              type="button"
+              onClick={() => setMenuOpen((open) => !open)}
+              className={cn(
+                capsule,
+                "grid size-11 place-items-center text-foreground hover:border-foreground/25 lg:hidden",
+              )}
+              aria-expanded={menuOpen}
+              aria-controls="mobile-menu"
+              aria-label={menuOpen ? "Close menu" : "Open menu"}
+            >
+              {menuOpen ? (
+                <XIcon className="size-4" aria-hidden="true" />
+              ) : (
+                <MenuIcon className="size-4" aria-hidden="true" />
+              )}
+            </button>
           </div>
+        </div>
 
-          {menuOpen ? (
+        {menuOpen ? (
+          <div className="container-site">
             <div
               id="mobile-menu"
-              className="mt-2 rounded-2xl border border-border bg-background/95 p-2 shadow-xl backdrop-blur-xl lg:hidden"
+              className="mt-2 rounded-[1.75rem] border border-border bg-background/95 p-2 shadow-xl backdrop-blur-xl lg:hidden"
             >
               <nav aria-label="Mobile">
-                <ul className="flex flex-col">
+                <ul className="flex flex-col gap-1">
                   {NAV_LINKS.map((link) => {
                     const active = activeHref === link.href;
                     return (
@@ -210,8 +180,10 @@ export function Navbar({ searchIndex }: { searchIndex: SearchIndexEntry[] }) {
                           onClick={() => setMenuOpen(false)}
                           aria-current={active ? "page" : undefined}
                           className={cn(
-                            "flex items-center rounded-xl px-4 py-3 text-sm font-medium transition-colors",
-                            active ? "bg-muted text-foreground" : "text-muted-foreground hover:bg-muted",
+                            "flex items-center rounded-full px-5 py-3 text-sm font-medium transition-colors",
+                            active
+                              ? "bg-foreground text-background"
+                              : "text-foreground hover:bg-muted",
                           )}
                         >
                           {link.label}
@@ -231,8 +203,8 @@ export function Navbar({ searchIndex }: { searchIndex: SearchIndexEntry[] }) {
                 </CtaButton>
               </div>
             </div>
-          ) : null}
-        </div>
+          </div>
+        ) : null}
       </header>
 
       <SearchCommand index={searchIndex} open={searchOpen} onOpenChange={setSearchOpen} />

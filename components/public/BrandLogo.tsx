@@ -46,7 +46,7 @@ export function BrandLogo({
     </>
   );
 
-  const classes = cn("inline-flex items-center gap-2.5", className);
+  const classes = cn("inline-flex items-center gap-2.5 rounded-xl", className);
 
   if (!href) {
     return (
@@ -58,7 +58,7 @@ export function BrandLogo({
   }
 
   return (
-    <Link href={href} className={cn(classes, "rounded-xl")} aria-label={`${SITE_NAME} home`}>
+    <Link href={href} className={classes} aria-label={`${SITE_NAME} home`}>
       {content}
     </Link>
   );

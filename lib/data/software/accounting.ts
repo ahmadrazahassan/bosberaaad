@@ -139,10 +139,11 @@ export const ACCOUNTING_SOFTWARE = [
       <h2>Who should buy it</h2>
       <p>Growing businesses that value the day to day experience, anyone with a multi currency element, and teams that want to build a stack of connected apps rather than one monolith. If your accountant is Xero certified, this is an easy recommendation.</p>
     `,
-    starting_price: 330,
-    price_vat_inclusive: false,
+    starting_price: 450,
+    price_vat_inclusive: true,
+    price_checked_at: "2026-08-12",
     pricing_note:
-      "Xero quotes South African prices in rand excluding VAT. The Ignite plan caps invoices, bills and quotes, so most businesses start on Grow.",
+      "Xero states that South African prices are in rand including VAT. Bank feeds are included on every plan; payroll, expenses and projects are charged on top.",
     free_trial: true,
     pricing_plans: [
       {
@@ -667,6 +668,7 @@ export const ACCOUNTING_SOFTWARE = [
     `,
     starting_price: null,
     price_vat_inclusive: false,
+    price_checked_at: "2026-08-12",
     pricing_note:
       "Quoted on scope. Budget for licence plus implementation, and expect implementation to be the larger number in year one.",
     free_trial: false,

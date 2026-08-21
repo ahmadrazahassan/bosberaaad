@@ -27,6 +27,7 @@ export const ERP_SOFTWARE = [
     `,
     starting_price: null,
     price_vat_inclusive: false,
+    price_checked_at: "2026-08-12",
     pricing_note:
       "Licensed per module and per user through a Sage partner. Implementation usually exceeds the first year licence cost, so budget the total rather than the licence.",
     free_trial: false,
@@ -562,6 +563,7 @@ export const ERP_SOFTWARE = [
     `,
     starting_price: null,
     price_vat_inclusive: false,
+    price_checked_at: "2026-08-12",
     pricing_note:
       "Quoted on users, modules and deployment through a specialised Sage partner. Implementation typically runs six to twelve months.",
     free_trial: false,

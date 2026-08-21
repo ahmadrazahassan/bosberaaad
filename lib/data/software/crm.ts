@@ -651,6 +651,7 @@ export const CRM_SOFTWARE = [
     `,
     starting_price: null,
     price_vat_inclusive: false,
+    price_checked_at: "2026-08-12",
     pricing_note:
       "Quoted per user through the Sage partner network, with implementation charged separately. Available on premises or hosted.",
     free_trial: false,

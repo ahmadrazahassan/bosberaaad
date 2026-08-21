@@ -96,7 +96,7 @@ export const HR_SOFTWARE = [
         price: 1850,
         period: "month",
         vat_inclusive: false,
-        description: "Added per employee, covering vacancy through to offer.",
+        description: "A flat monthly module fee covering vacancy through to offer.",
         user_limit: "Flat rate, any headcount",
         features: [
           "Vacancy management",

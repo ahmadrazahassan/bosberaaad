@@ -166,12 +166,12 @@ export function ReviewsMarquee({
         >
           {formatNumber(totalReviews)} reviews.
           <br />
-          <span className="font-bold">Not one of them bought.</span>
+          <span className="font-bold">Across {productCount} products.</span>
         </h2>
 
         <p className="max-w-xl text-base leading-relaxed text-pretty text-white/55 sm:text-lg">
-          Every rating on this site is computed from published reviews across{" "}
-          {productCount} products. Vendors can reply. They cannot remove one.
+          Ratings are computed from published reviews rather than written by hand. Vendors
+          can respond to any review, and their response is published with it.
         </p>
       </div>
 

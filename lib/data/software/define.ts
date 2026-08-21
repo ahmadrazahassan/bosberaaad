@@ -80,7 +80,7 @@ export function defineSoftware(seed: SoftwareSeed): Software {
     free_version: seed.free_version ?? false,
     pricing_plans: seed.pricing_plans,
     pricing_note: seed.pricing_note ?? null,
-    price_checked_at: seed.price_checked_at ?? "2026-07-01",
+    price_checked_at: seed.price_checked_at ?? "2026-08-12",
 
     features: seed.features,
     top_features: seed.top_features,

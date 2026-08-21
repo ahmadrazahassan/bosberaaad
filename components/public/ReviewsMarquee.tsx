@@ -140,7 +140,7 @@ export function ReviewsMarquee({
   return (
     <section
       aria-labelledby="reviews-wall-heading"
-      className="relative isolate -mx-4 overflow-hidden rounded-b-[2.5rem] bg-[#0b0d13] py-20 sm:-mx-6 sm:rounded-b-[4rem] sm:py-24 lg:-mx-12 lg:rounded-b-[5.5rem]"
+      className="full-bleed relative isolate overflow-hidden rounded-t-[1.25rem] rounded-b-[2.5rem] bg-[#0b0d13] py-20 sm:rounded-t-[1.75rem] sm:rounded-b-[4rem] sm:py-24 lg:rounded-t-[2.25rem] lg:rounded-b-[5.5rem]"
     >
       <Image
         src={SITE_IMAGES.reviewsBackdrop}

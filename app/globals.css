@@ -162,6 +162,17 @@
     color: var(--foreground);
     font-family: var(--font-sans);
     text-rendering: optimizeLegibility;
+    /*
+     * For .full-bleed, whose 100vw includes the scrollbar and so runs a
+     * scrollbar's width past the content box.
+     *
+     * clip, never hidden. hidden makes this a scroll container, which would
+     * break every position: sticky on the site: the profile rail, the compare
+     * bar, the matrix headers. clip creates no scroll container, and clip
+     * paired with visible on the block axis is the one combination that leaves
+     * visible as visible rather than forcing it to auto.
+     */
+    overflow-x: clip;
   }
 
   h1, h2, h3, h4, h5, h6 {
@@ -195,6 +206,17 @@
 /* ============================================================================
    4. LAYOUT LANGUAGE
    ========================================================================== */
+
+/*
+ * Escapes any ancestor to the true width of the viewport, whatever the
+ * container around it is doing. Negative margins cannot do this: they only
+ * reach the edge while the container is narrower than its max-width, and stop
+ * short of it on anything wider.
+ */
+.full-bleed {
+  width: 100vw;
+  margin-inline: calc(50% - 50vw);
+}
 
 .container-site {
   margin-inline: auto;

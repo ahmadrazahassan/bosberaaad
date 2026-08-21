@@ -18,6 +18,7 @@ export function SoftwareLogo({
   size = 56,
   className,
   ring = false,
+  bare = false,
 }: {
   name: string;
   slug: string;
@@ -27,6 +28,11 @@ export function SoftwareLogo({
   className?: string;
   /** Draws a tinted ring in the product's colour, used on profile headers. */
   ring?: boolean;
+  /**
+   * No tile, no hairline, no crop: the mark alone at the given size. For dark
+   * panels, where our own hairline reads as a box drawn around the logo.
+   */
+  bare?: boolean;
 }) {
   const source = productLogo(slug, logoUrl);
 
@@ -38,7 +44,9 @@ export function SoftwareLogo({
     .map((word) => word[0]?.toUpperCase())
     .join("");
 
-  const radius = Math.round(size * 0.24);
+  // Bare drops the tile only where there is a real mark to drop it around.
+  // The monogram still needs its rounded plate to read as anything.
+  const radius = bare && source ? 0 : Math.round(size * 0.24);
 
   return (
     <div
@@ -54,7 +62,9 @@ export function SoftwareLogo({
         borderRadius: radius,
         // Real logos arrive with their own background, so the tile stays clear.
         backgroundColor: source ? "transparent" : brandColor,
-        boxShadow: ring
+        boxShadow: bare && source
+          ? undefined
+          : ring
           ? `0 0 0 1px ${withAlpha(brandColor, 0.2)}, 0 0 0 6px ${withAlpha(brandColor, 0.08)}`
           : source
             ? "inset 0 0 0 1px rgba(20,22,31,0.08)"
@@ -67,7 +77,7 @@ export function SoftwareLogo({
           alt=""
           width={size * 2}
           height={size * 2}
-          className="size-full object-cover"
+          className={cn("size-full", bare ? "object-contain" : "object-cover")}
           sizes={`${size}px`}
         />
       ) : (

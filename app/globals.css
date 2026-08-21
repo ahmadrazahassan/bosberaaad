@@ -480,6 +480,50 @@
   @keyframes dial-sweep { from { stroke-dashoffset: var(--dial-circumference); } }
 }
 
+/* ---- Marquee ------------------------------------------------------------ */
+/*
+ * A row that scrolls forever. The track holds its content twice and travels
+ * exactly half its own width, so the moment it resets, the copy that was
+ * mid-frame is replaced by its duplicate at the identical position. No seam.
+ *
+ * Duration is set per row rather than fixed, because a row of wider cards has
+ * further to travel and would otherwise read as faster.
+ */
+.marquee {
+  display: flex;
+  width: max-content;
+  animation: marquee-travel var(--marquee-duration, 60s) linear infinite;
+  animation-direction: var(--marquee-direction, normal);
+}
+
+@keyframes marquee-travel {
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+/* Hovering anywhere on the row stops it, so a card can actually be read.
+   focus-within does the same for anyone arriving by keyboard. */
+.marquee-viewport:hover .marquee,
+.marquee-viewport:focus-within .marquee {
+  animation-play-state: paused;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  /*
+   * The blanket reduce rule below collapses every animation to 0.01ms, which
+   * would leave the track frozen half a lap in. Cancel it outright here and
+   * hand the row over as something the reader scrolls themselves.
+   */
+  .marquee {
+    animation: none !important;
+    transform: none !important;
+  }
+  .marquee-viewport {
+    overflow-x: auto;
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   *, ::before, ::after {
     animation-duration: 0.01ms !important;

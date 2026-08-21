@@ -11,10 +11,11 @@ import { HomepageExplore } from "@/components/public/HomepageExplore";
 import { NewsletterForm } from "@/components/public/NewsletterForm";
 import { SearchBar } from "@/components/public/SearchBar";
 import { FreshCheckCard, RankedCard, VersusCard } from "@/components/public/home-rows";
+import { ReviewsMarquee, type MarqueeReview } from "@/components/public/ReviewsMarquee";
 import { SectionHeader } from "@/components/public/SectionHeader";
 import { SectionIntro } from "@/components/public/SectionIntro";
 import { formatDate, formatNumber, formatReadTime } from "@/lib/format";
-import { getStarDistribution } from "@/lib/queries/reviews";
+import { getReviewHighlights, getStarDistribution } from "@/lib/queries/reviews";
 import {
   getCategories,
   getComparisons,
@@ -55,6 +56,24 @@ export default async function HomePage() {
       software: (await getSoftwareByCategory(category.slug)).slice(0, 6),
     })),
   );
+
+  /*
+   * The review wall. Three highlights each from a spread of twelve products,
+   * so the rows carry different logos rather than the same four repeatedly.
+   * Dealt round robin into three rows to keep each row mixed.
+   */
+  const wallProducts = exploreGroups.flatMap((group) => group.software.slice(0, 2)).slice(0, 12);
+  const wallReviews: MarqueeReview[] = (
+    await Promise.all(
+      wallProducts.map(async (software) => {
+        const highlights = await getReviewHighlights(software, 3);
+        return highlights.map((review) => ({ review, software }));
+      }),
+    )
+  ).flat();
+
+  const reviewRows: MarqueeReview[][] = [[], [], []];
+  wallReviews.forEach((item, index) => reviewRows[index % 3].push(item));
 
   const popularCategories = categories.slice(0, 4);
 
@@ -297,6 +316,13 @@ export default async function HomePage() {
             <NewsletterForm variant="dark" source="home" showInterests />
           </div>
         </section>
+
+        {/* ------------------------------------------------------- Review wall */}
+        <ReviewsMarquee
+          rows={reviewRows}
+          totalReviews={stats.reviews}
+          productCount={stats.software}
+        />
 
         {/* --------------------------------------------------- Recently reviewed */}
         <section aria-labelledby="recent-heading" className="reveal-on-scroll">

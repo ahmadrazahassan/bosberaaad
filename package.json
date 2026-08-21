@@ -16,7 +16,7 @@
     "logos": "tsx scripts/fetch-logos.ts",
     "create-admin": "tsx scripts/create-admin.ts",
     "check-prices": "tsx scripts/check-prices.ts",
-    "assets": "tsx scripts/recolour-logo.ts && tsx scripts/recolour-shapes.ts && tsx scripts/optimise-hero.ts"
+    "assets": "tsx scripts/recolour-logo.ts && tsx scripts/recolour-shapes.ts && tsx scripts/optimise-hero.ts && tsx scripts/recolour-reviews-bg.ts"
   },
   "dependencies": {
     "@supabase/ssr": "^0.12.0",

@@ -1,20 +1,19 @@
-import { BookOpenIcon, LayersIcon } from "lucide-react";
+import { LayersIcon } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 
 import { AffiliateDisclosureNote } from "@/components/public/affiliate";
-import { ArticleRow } from "@/components/public/cards";
 import { CategoryIcon } from "@/components/public/CategoryIcon";
 import { CountryFlag } from "@/components/public/CountryFlag";
-import { CtaButton } from "@/components/public/CtaButton";
 import { HomepageExplore } from "@/components/public/HomepageExplore";
 import { NewsletterForm } from "@/components/public/NewsletterForm";
 import { SearchBar } from "@/components/public/SearchBar";
 import { FreshCheckCard, RankedCard, VersusCard } from "@/components/public/home-rows";
+import { GuidesShowcase } from "@/components/public/GuidesShowcase";
 import { ReviewsMarquee, type MarqueeReview } from "@/components/public/ReviewsMarquee";
 import { SectionHeader } from "@/components/public/SectionHeader";
 import { SectionIntro } from "@/components/public/SectionIntro";
-import { formatDate, formatNumber, formatReadTime } from "@/lib/format";
+import { formatNumber } from "@/lib/format";
 import { getReviewHighlights, getStarDistribution } from "@/lib/queries/reviews";
 import {
   getCategories,
@@ -44,7 +43,7 @@ export default async function HomePage() {
     getTopRatedSoftware(3),
     getRecentlyReviewedSoftware(3),
     getComparisons(),
-    getLatestArticles(3),
+    getLatestArticles(6),
   ]);
 
   // Real star distributions, so the sentiment strip on each card is data.
@@ -344,37 +343,8 @@ export default async function HomePage() {
           <AffiliateDisclosureNote className="mt-6 justify-center" />
         </section>
 
-        {/* -------------------------------------------------------- Blog preview */}
-        <section aria-labelledby="guides-heading" className="reveal-on-scroll space-y-10">
-          <SectionHeader
-            id="guides-heading"
-            eyebrow="Buying guides"
-            icon={BookOpenIcon}
-            title="Read before you"
-            highlight="commit the budget"
-            subtitle="Written by people who have implemented this software, not by people who sell it."
-          />
-
-          <div className="mx-auto max-w-4xl">
-            {articles.map((article, index) => (
-              <ArticleRow
-                key={article.id}
-                index={index + 1}
-                title={article.title}
-                href={`/blog/${article.slug}`}
-                excerpt={article.excerpt}
-                tag={article.category_tag}
-                date={formatDate(article.published_date, "short")}
-                readTime={formatReadTime(article.read_time_minutes)}
-                author={article.author_name}
-              />
-            ))}
-          </div>
-
-          <div className="flex justify-center">
-            <CtaButton href="/blog">Read all guides</CtaButton>
-          </div>
-        </section>
+        {/* ---------------------------------------------------- Guides showcase */}
+        <GuidesShowcase articles={articles} />
       </div>
     </>
   );

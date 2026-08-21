@@ -88,7 +88,7 @@ export const ACCOUNTING_SOFTWARE = [
     ],
     integrations: [
       "Sage Pastel Payroll",
-      "Sage Business Cloud Payroll",
+      "Sage Payroll",
       "SimplePay",
       "Yoco",
       "PayFast",
@@ -622,7 +622,7 @@ export const ACCOUNTING_SOFTWARE = [
     ],
     integrations: [
       "Sage Pastel Payroll",
-      "Sage Business Cloud Payroll",
+      "Sage Payroll",
       "Draftworx",
       "CaseWare",
       "Pastel Point of Sale",

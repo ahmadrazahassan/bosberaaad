@@ -131,7 +131,7 @@ export const HR_SOFTWARE = [
       "Reporting and headcount analytics",
     ],
     integrations: [
-      "Sage Business Cloud Payroll",
+      "Sage Payroll",
       "Sage Pastel Payroll",
       "SimplePay",
       "Slack",

@@ -53,7 +53,7 @@ const SEED: AlternativeSeed = {
   ],
 
   simplepay: [
-    { slug: "sage-business-cloud-payroll", reason: "The closest competitor. Trial both, and pick the one your administrator finds clearer." },
+    { slug: "sage-payroll", reason: "The closest competitor. Trial both, and pick the one your administrator finds clearer." },
     { slug: "payroll-online", reason: "Cheaper for a straightforward salaried payroll under fifty staff." },
     { slug: "paysoft", reason: "The better answer if you have significant hourly or bargaining council staff." },
     { slug: "payspace", reason: "The step up at a few hundred employees or across more than one country." },
@@ -64,11 +64,11 @@ const SEED: AlternativeSeed = {
     { slug: "paysoft", reason: "Stronger on wage and shift payroll in industrial environments." },
   ],
   "sage-pastel-payroll": [
-    { slug: "sage-business-cloud-payroll", reason: "The same compliance engine without the local installation or the bands." },
+    { slug: "sage-payroll", reason: "The same compliance engine without the local installation or the bands." },
     { slug: "simplepay", reason: "Usually cheaper at the same headcount, and easier for a non specialist." },
     { slug: "paysoft", reason: "Better for weekly wages and bargaining council agreements." },
   ],
-  "sage-business-cloud-payroll": [
+  "sage-payroll": [
     { slug: "simplepay", reason: "Clearer interface and faster support at a comparable per employee price." },
     { slug: "sage-pastel-payroll", reason: "Choose this instead if connectivity at month end is genuinely unreliable." },
     { slug: "payspace", reason: "The move when headcount or multi country complexity grows." },
@@ -80,7 +80,7 @@ const SEED: AlternativeSeed = {
   ],
   "payroll-online": [
     { slug: "simplepay", reason: "A little more per employee for materially better support and reporting." },
-    { slug: "sage-business-cloud-payroll", reason: "Backed by a vendor that will still be here in fifteen years." },
+    { slug: "sage-payroll", reason: "Backed by a vendor that will still be here in fifteen years." },
   ],
 
   "sage-hr": [

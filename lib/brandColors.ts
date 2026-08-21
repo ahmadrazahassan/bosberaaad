@@ -35,7 +35,7 @@ export const BRAND_COLORS: Record<string, string> = {
   simplepay: "#1e88e5",
   payspace: "#e4002b",
   "sage-pastel-payroll": "#00754a",
-  "sage-business-cloud-payroll": "#00d639",
+  "sage-payroll": "#00d639",
   "payroll-online": "#1f6feb",
   "vip-payroll": "#00754a",
   "paysoft": "#0b6e4f",

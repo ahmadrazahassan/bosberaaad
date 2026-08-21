@@ -76,7 +76,7 @@ export const BUYING_GUIDES = [
       <h3>If you operate in more than one African country</h3>
       <p>PaySpace. Statutory rules maintained across more than forty countries, with payroll and HR sharing one employee record. It is an enterprise purchase with an implementation project attached, and below roughly two hundred employees it is difficult to justify.</p>
       <h3>If you already run Sage Accounting</h3>
-      <p>Sage Business Cloud Payroll, at around R30 per employee per month. The compliance engine is inherited from thirty years of getting South African payroll right, and it posts straight into your ledger with no export step. Our reviewers consistently find the interface less clear than SimplePay, particularly the ETI screens, so trial both with your own data.</p>
+      <p>Sage Payroll, from R72 a month including VAT at the one to two employee band, rising with headcount rather than charging a flat per employee rate. The compliance engine is inherited from thirty years of getting South African payroll right, and it posts straight into your ledger with no export step. Our reviewers consistently find the interface less clear than SimplePay, particularly the ETI screens, so trial both with your own data.</p>
       <h3>If your payroll administrator already knows Pastel</h3>
       <p>Sage Pastel Payroll. Complete statutory coverage, runs locally so month end survives a power cut, and there are more trained operators for it than for anything else. Watch the licensing bands, because crossing an employee count boundary produces a step change in cost that catches people out.</p>
       <h2>The ETI mistake we see most often</h2>

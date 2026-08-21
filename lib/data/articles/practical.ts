@@ -45,7 +45,7 @@ export const PRACTICAL_ARTICLES = [
       <ul>
         <li><strong>SimplePay</strong> at around R26 per employee per month excluding VAT, with no minimum. Eight employees costs about R208 a month excluding VAT.</li>
         <li><strong>Payroll Online</strong> at around R19 per employee, with a five employee minimum. Eight employees costs about R152.</li>
-        <li><strong>Sage Business Cloud Payroll</strong> at around R30 per employee with a small minimum. Eight employees costs about R240.</li>
+        <li><strong>Sage Payroll</strong> from R72 a month including VAT. It is banded by headcount rather than charged per employee, so ask for the figure at your own band before comparing it with a per employee product.</li>
         <li><strong>Sage Pastel Payroll</strong> is banded rather than per employee, so a small employer pays a band price whether they have four staff or fifteen. At this size it is usually the most expensive option.</li>
       </ul>
       <h2>Our recommendation</h2>
@@ -189,7 +189,7 @@ export const PRACTICAL_ARTICLES = [
       <p>The payroll journal posting straight into the ledger with no export, import or reconciliation is a genuine time saving, and more importantly it removes a place where errors hide. A monthly payroll journal captured by hand is a monthly opportunity to transpose a figure.</p>
       <p>One vendor also means one support relationship, one invoice and one renewal conversation. When something breaks across the boundary between two systems, having one company that cannot blame another is worth something.</p>
       <h2>The case against</h2>
-      <p>You are almost never buying the best product in both categories. Sage Business Cloud Payroll is good. SimplePay is better, on interface clarity and support responsiveness, and our review corpus is consistent about that. Choosing Sage payroll to match Sage accounting means choosing the second best payroll to save an export step.</p>
+      <p>You are almost never buying the best product in both categories. Sage Payroll is good. SimplePay is better, on interface clarity and support responsiveness, and our review corpus is consistent about that. Choosing Sage payroll to match Sage accounting means choosing the second best payroll to save an export step.</p>
       <p>Bundles also create lock in. Migrating one system is a project. Migrating two interlocked systems is a bigger one, and vendors know this when they price the renewal.</p>
       <h2>How to decide</h2>
       <p>Ask how much work the integration actually saves. For most small businesses the payroll journal is one entry a month. If integration saves fifteen minutes a month, it should not outweigh a payroll product that is materially better to use every single pay run.</p>

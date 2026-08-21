@@ -340,12 +340,12 @@ export const PAYROLL_SOFTWARE = [
   }),
 
   defineSoftware({
-    name: "Sage Business Cloud Payroll",
-    slug: "sage-business-cloud-payroll",
+    name: "Sage Payroll",
+    slug: "sage-payroll",
     category_id: CATEGORY,
     tagline: "Sage compliance, delivered in the browser",
     description_short:
-      "Sage Business Cloud Payroll brings the Pastel Payroll compliance engine to a cloud product with per employee pricing and no local installation.",
+      "Sage Payroll brings the Pastel Payroll compliance engine to a cloud product with per employee pricing and no local installation.",
     description_full: `
       <p>This is Sage's answer to SimplePay, and it is a reasonable one. The statutory engine is inherited from a product that has been getting South African payroll right for thirty years, delivered in a browser with per employee pricing and no installation to maintain.</p>
       <p>For a business already inside the Sage ecosystem it is the path of least resistance. It posts to Sage Accounting cleanly, the employee record structure matches Sage HR, and the support desk is the one you already phone.</p>

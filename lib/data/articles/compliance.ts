@@ -96,7 +96,7 @@ export const COMPLIANCE_ARTICLES = [
       <p>Where an employee works less than a full month, the remuneration must be grossed up to a monthly equivalent to determine the band, and then the incentive apportioned. Systems that skip the gross up put employees in the wrong band and understate the claim.</p>
       <h2>How to check your payroll</h2>
       <p>Ask your system for an ETI report that shows, per employee per month: the remuneration used, the band applied, the months claimed to date, the months remaining, and the resulting incentive. If your payroll cannot produce that, ask the vendor how you are expected to substantiate the claim on audit.</p>
-      <p>Of the systems we assess, SimplePay, PaySpace, Sage Pastel Payroll, Sage Business Cloud Payroll and PaySoft all produce a working per employee ETI schedule. Payroll Online supports ETI with thinner reporting.</p>
+      <p>Of the systems we assess, SimplePay, PaySpace, Sage Pastel Payroll, Sage Payroll and PaySoft all produce a working per employee ETI schedule. Payroll Online supports ETI with thinner reporting.</p>
       <h2>The unclaimed balance</h2>
       <p>Where the ETI you are entitled to exceeds the PAYE payable in a month, the excess is not lost immediately. It rolls forward within the reconciliation period and is refunded on the EMP501 if it remains unused, provided you are tax compliant at that point.</p>
       <p>That last condition matters. An employer with an outstanding return or an unpaid liability forfeits the refund. It is worth checking your compliance status before the reconciliation rather than after.</p>
@@ -138,7 +138,7 @@ export const COMPLIANCE_ARTICLES = [
         <li>Terminate a test employee mid cycle and confirm the leave payout calculation.</li>
       </ol>
       <h2>Which systems ship it correctly</h2>
-      <p>Sage HR and HR Companion model BCEA leave without configuration. SimplePay, PaySpace, Sage Pastel Payroll and Sage Business Cloud Payroll all handle it correctly on the payroll side. BambooHR, PeopleHR and Personio are flexible enough to be configured correctly and do not ship that way, so budget for someone who knows the Act to set it up and then test it against the scenarios above.</p>
+      <p>Sage HR and HR Companion model BCEA leave without configuration. SimplePay, PaySpace, Sage Pastel Payroll and Sage Payroll all handle it correctly on the payroll side. BambooHR, PeopleHR and Personio are flexible enough to be configured correctly and do not ship that way, so budget for someone who knows the Act to set it up and then test it against the scenarios above.</p>
     `,
   }),
 
@@ -162,7 +162,7 @@ export const COMPLIANCE_ARTICLES = [
       <h3>Level three: full submission with acknowledgement</h3>
       <p>The system submits and stores the acknowledgement against the period. This exists in the payroll world, where e@syFile handles the employer submissions, but no small business accounting package we assess does it end to end for VAT.</p>
       <h2>Payroll is a different story</h2>
-      <p>On the payroll side, the picture is better. e@syFile is SARS's own employer application, and every credible South African payroll produces an import file for it. SimplePay, PaySpace, Sage Pastel Payroll, Sage Business Cloud Payroll, PaySoft and Payroll Online all do.</p>
+      <p>On the payroll side, the picture is better. e@syFile is SARS's own employer application, and every credible South African payroll produces an import file for it. SimplePay, PaySpace, Sage Pastel Payroll, Sage Payroll, PaySoft and Payroll Online all do.</p>
       <p>The test worth applying is whether the file validates in e@syFile on the first attempt. Systems that produce files requiring correction turn a one hour job into a day, twice a year. Ask a vendor's existing customers about this specifically rather than asking the vendor.</p>
       <h2>What to ask a vendor</h2>
       <p>Use precise language, because "integrates with SARS" is a claim that covers all three levels above.</p>

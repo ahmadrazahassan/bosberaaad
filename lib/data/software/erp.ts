@@ -71,7 +71,7 @@ export const ERP_SOFTWARE = [
     ],
     integrations: [
       "Sage Pastel Payroll",
-      "Sage Business Cloud Payroll",
+      "Sage Payroll",
       "PaySpace",
       "Sage CRM",
       "Power BI",

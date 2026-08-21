@@ -32,7 +32,7 @@ export const PRODUCT_LOGOS: Record<string, string> = {
   simplepay: "/logos/simplepay.png",
   payspace: "/logos/payspace.png",
   "sage-pastel-payroll": "/logos/sage-pastel-payroll.png",
-  "sage-business-cloud-payroll": "/logos/sage-business-cloud-payroll.png",
+  "sage-payroll": "/logos/sage-payroll.png",
 
   // HR
   "sage-hr": "/logos/sage-hr.png",
@@ -117,7 +117,7 @@ export const PRODUCT_SCREENSHOTS: Record<string, string[]> = {
     "/screenshots/sage-payroll-2.png",
     "/screenshots/sage-payroll-3.png",
   ],
-  "sage-business-cloud-payroll": ["/screenshots/sage-cloud-business-payroll-1.png"],
+  "sage-payroll": ["/screenshots/sage-cloud-business-payroll-1.png"],
 };
 
 export function productScreenshots(slug: string, stored: string[]): string[] {
@@ -166,7 +166,7 @@ export const INTEGRATION_LOGOS: Record<string, string> = {
   "Sage 300": "/logos/sage-300-people.png",
   "Sage 50cloud Pastel": "/logos/sage-pastel-accounting.png",
   "Sage Accounting": "/integrations/sage-accounting.svg",
-  "Sage Business Cloud Payroll": "/logos/sage-business-cloud-payroll.png",
+  "Sage Payroll": "/logos/sage-payroll.png",
   "Sage CRM": "/logos/sage-crm.png",
   "Sage HR": "/logos/sage-hr.png",
   "Sage Intacct": "/logos/sage-intacct.png",

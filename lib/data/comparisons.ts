@@ -18,9 +18,9 @@ const SEED: ComparisonSeed[] = [
   },
   {
     a: "simplepay",
-    b: "sage-business-cloud-payroll",
+    b: "sage-payroll",
     meta_description:
-      "SimplePay against Sage Business Cloud Payroll: statutory coverage, ETI handling, support responsiveness and per employee cost.",
+      "SimplePay against Sage Payroll: statutory coverage, ETI handling, support responsiveness and per employee cost.",
     verdict:
       "<p>Both handle the full South African statutory set correctly. EMP201, EMP501, IRP5 and IT3(a), e@syFile, UIF, SDL, ETI and BCEA leave are all present and reliable in each. There is no compliance argument between them.</p><p>The difference is everyday clarity and support. Our review corpus is consistent that SimplePay's interface is easier for a non specialist, that the ETI screens in particular are clearer, and that support responds faster because it is a small team on a single product rather than a large organisation covering many.</p><p>Sage wins on one thing: if you already run Sage Accounting, the payroll journal posts straight through with no export step, on one invoice, from one support desk. For a business with a complex departmental allocation that integration is worth real money. For a business posting one journal a month it saves fifteen minutes.</p><p>We recommend SimplePay for most employers. Trial both with your own payroll and let your administrator decide.</p>",
   },

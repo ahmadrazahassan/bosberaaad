@@ -21,6 +21,40 @@ const nextConfig: NextConfig = {
   experimental: {
     optimizePackageImports: ["lucide-react", "recharts", "radix-ui"],
   },
+
+  /**
+   * Sage renamed Sage Business Cloud Payroll to Sage Payroll, so our slug
+   * followed. These keep the old URLs alive rather than letting them 404 and
+   * lose whatever they had ranked for.
+   *
+   * The redirects table in Supabase would normally carry this, but it is only
+   * consulted when a database is configured, and the site runs without one.
+   */
+  async redirects() {
+    return [
+      {
+        source: "/software/sage-business-cloud-payroll",
+        destination: "/software/sage-payroll",
+        permanent: true,
+      },
+      {
+        source: "/software/sage-business-cloud-payroll/:path*",
+        destination: "/software/sage-payroll/:path*",
+        permanent: true,
+      },
+      // Comparison URLs carry both product slugs, in either order.
+      {
+        source: "/compare/:before-vs-sage-business-cloud-payroll",
+        destination: "/compare/:before-vs-sage-payroll",
+        permanent: true,
+      },
+      {
+        source: "/compare/sage-business-cloud-payroll-vs-:after",
+        destination: "/compare/sage-payroll-vs-:after",
+        permanent: true,
+      },
+    ];
+  },
 };
 
 export default nextConfig;

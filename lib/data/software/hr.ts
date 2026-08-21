@@ -21,15 +21,16 @@ export const HR_SOFTWARE = [
       <h2>Who should buy it</h2>
       <p>Businesses between twenty and three hundred employees who want to get leave off email and out of spreadsheets, and who value being able to add capability gradually. It pairs naturally with Sage payroll but does not require it.</p>
     `,
-    starting_price: 55,
+    starting_price: 28,
     price_vat_inclusive: false,
+    price_checked_at: "2026-08-12",
     pricing_note:
-      "Priced per employee per month per module, excluding VAT. Price the full module set you expect to need before comparing against bundled competitors.",
+      "Priced per employee per month, per module. Sage does not state a VAT basis on the Sage HR pricing page, unlike its accounting and payroll pages, so confirm it before budgeting. Recruitment is the exception to the per employee model and is charged at a flat R1 850 a month. Price the full module set you expect to need before comparing against bundled competitors.",
     free_trial: true,
     pricing_plans: [
       {
-        name: "Core HR and Leave",
-        price: 55,
+        name: "Core HR and Leave Management",
+        price: 28,
         period: "month",
         vat_inclusive: false,
         description: "Employee records, org chart and BCEA compliant leave management.",
@@ -46,7 +47,7 @@ export const HR_SOFTWARE = [
       },
       {
         name: "Performance",
-        price: 40,
+        price: 14,
         period: "month",
         vat_inclusive: false,
         description: "Added per employee on top of Core HR.",
@@ -60,7 +61,7 @@ export const HR_SOFTWARE = [
       },
       {
         name: "Shift scheduling",
-        price: 40,
+        price: 14,
         period: "month",
         vat_inclusive: false,
         description: "Added per employee, for hourly and rostered teams.",
@@ -73,12 +74,30 @@ export const HR_SOFTWARE = [
         ],
       },
       {
+        name: "Timesheets",
+        price: 14,
+        period: "month",
+        vat_inclusive: false,
+        description: "Track hours against projects and clients.",
+        user_limit: "Per employee",
+        features: ["Time capture", "Project and client allocation", "Approval workflow"],
+      },
+      {
+        name: "Expenses",
+        price: 10,
+        period: "month",
+        vat_inclusive: false,
+        description: "Mobile expense capture and reimbursement approval.",
+        user_limit: "Per employee",
+        features: ["Photograph a receipt", "Approval workflow", "Reimbursement tracking"],
+      },
+      {
         name: "Recruitment",
-        price: 45,
+        price: 1850,
         period: "month",
         vat_inclusive: false,
         description: "Added per employee, covering vacancy through to offer.",
-        user_limit: "Per employee",
+        user_limit: "Flat rate, any headcount",
         features: [
           "Vacancy management",
           "Careers page",
@@ -130,7 +149,7 @@ export const HR_SOFTWARE = [
     best_for_size: ["11 to 50 employees", "51 to 200 employees", "201 to 500 employees"],
     best_for_role: ["HR manager", "Business owner", "Office manager"],
     vendor_name: "Sage Group plc",
-    vendor_website: "https://www.sage.com/en-za/products/sage-hr/",
+    vendor_website: "https://www.sage.com/en-za/sage-business-cloud/hr/",
     founded_year: 2012,
     support_types: ["Email", "Live chat", "Knowledge base", "Onboarding support"],
     target_rating: 4.3,

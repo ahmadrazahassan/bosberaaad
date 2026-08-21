@@ -612,7 +612,7 @@ export const ERP_SOFTWARE = [
     best_for_size: ["201 to 500 employees", "500 plus employees", "51 to 200 employees"],
     best_for_role: ["Operations director", "Production manager", "Group financial director"],
     vendor_name: "Sage Group plc",
-    vendor_website: "https://www.sage.com/en-za/products/sage-x3/",
+    vendor_website: "https://www.sage.com/en-za/sage-business-cloud/sage-x3/",
     founded_year: 1979,
     support_types: ["Partner network", "Telephone", "Email", "On site consulting"],
     target_rating: 3.9,

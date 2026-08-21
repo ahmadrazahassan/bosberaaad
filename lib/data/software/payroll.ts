@@ -246,18 +246,19 @@ export const PAYROLL_SOFTWARE = [
       <h2>Who should buy it</h2>
       <p>Businesses whose payroll administrator already knows Pastel, practices running payroll as a service for multiple clients, and anyone who needs payroll to work when the connection does not. Businesses starting fresh should compare it honestly against SimplePay on total cost before defaulting to it.</p>
     `,
-    starting_price: 410,
+    starting_price: null,
     price_vat_inclusive: false,
+    price_checked_at: "2026-08-12",
     pricing_note:
-      "Licensed in employee count bands rather than per employee, so cost steps rather than scales. Prices exclude VAT and modules are licensed separately.",
+      "Sage publishes no list price for Sage Pastel Payroll. Its product page routes to a reseller quote, and the Sage South Africa online shop it links to was offline when we last checked. Licensing is in employee count bands rather than per employee, so cost steps rather than scales. Get the quote in writing, with the band and the module list itemised.",
     free_trial: true,
     pricing_plans: [
       {
         name: "Payroll Essentials",
-        price: 410,
+        price: null,
         period: "month",
         vat_inclusive: false,
-        description: "Core statutory payroll for smaller employee bands.",
+        description: "Core statutory payroll for smaller employee bands. Quoted on band.",
         user_limit: "Banded by employee count",
         features: [
           "EMP201 and EMP501",
@@ -269,10 +270,11 @@ export const PAYROLL_SOFTWARE = [
       },
       {
         name: "Payroll Professional",
-        price: 780,
+        price: null,
         period: "month",
         vat_inclusive: false,
-        description: "Adds ETI, bargaining councils, leave and deeper reporting.",
+        description:
+          "Adds ETI, bargaining councils, leave and deeper reporting. Quoted on band.",
         user_limit: "Banded by employee count",
         popular: true,
         features: [
@@ -355,20 +357,21 @@ export const PAYROLL_SOFTWARE = [
       <h2>Who should buy it</h2>
       <p>Businesses running Sage Accounting who want payroll in the same account and on the same invoice. Businesses whose accountant is a Sage practice. Anyone who wants cloud payroll from a vendor that will still exist in fifteen years.</p>
     `,
-    starting_price: 30,
-    price_vat_inclusive: false,
+    starting_price: 72,
+    price_vat_inclusive: true,
+    price_checked_at: "2026-08-12",
     pricing_note:
-      "Charged per employee per month excluding VAT, usually with a small monthly minimum. Bundled discounts apply when purchased with Sage Accounting.",
+      "Sage now markets this as Sage Payroll. Prices include VAT and are quoted from the one to two employee band; the figure rises with headcount, selected on the pricing page, up to 150 employees. Bundled discounts apply when purchased with Sage Accounting.",
     free_trial: true,
     pricing_plans: [
       {
-        name: "Per employee",
-        price: 30,
+        name: "Payroll Essentials",
+        price: 72,
         period: "month",
-        vat_inclusive: false,
-        description: "Per active employee per month, with a small monthly minimum.",
-        user_limit: "Unlimited administrators",
-        popular: true,
+        vat_inclusive: true,
+        description:
+          "Pay employees and handle essential HR admin. Leave is limited to three types.",
+        user_limit: "From 1 to 2 employees",
         features: [
           "EMP201 and EMP501",
           "IRP5 and IT3(a)",
@@ -379,6 +382,34 @@ export const PAYROLL_SOFTWARE = [
           "BCEA leave",
           "Employee self service",
           "Posts directly to Sage Accounting",
+        ],
+      },
+      {
+        name: "Payroll Standard",
+        price: 90,
+        period: "month",
+        vat_inclusive: true,
+        description: "Adds all leave types, an onboarding portal and mobile expenses.",
+        user_limit: "From 1 to 2 employees",
+        popular: true,
+        features: [
+          "Everything in Payroll Essentials",
+          "All leave and absence types",
+          "Personalised onboarding portal",
+          "Mobile expense capture",
+        ],
+      },
+      {
+        name: "Payroll Premium",
+        price: 128,
+        period: "month",
+        vat_inclusive: true,
+        description: "Adds timesheets and hour tracking on top of Standard.",
+        user_limit: "From 1 to 2 employees",
+        features: [
+          "Everything in Payroll Standard",
+          "Timesheets and hour tracking",
+          "Submit and approve time",
         ],
       },
     ],
@@ -418,7 +449,7 @@ export const PAYROLL_SOFTWARE = [
     best_for_size: ["Sole trader", "2 to 10 employees", "11 to 50 employees"],
     best_for_role: ["Business owner", "Bookkeeper", "Payroll administrator"],
     vendor_name: "Sage Group plc",
-    vendor_website: "https://www.sage.com/en-za/products/sage-business-cloud-payroll/",
+    vendor_website: "https://www.sage.com/en-za/sage-business-cloud/payroll-1/",
     founded_year: 2015,
     support_types: ["Telephone", "Email", "Live chat", "Knowledge base"],
     target_rating: 4.1,

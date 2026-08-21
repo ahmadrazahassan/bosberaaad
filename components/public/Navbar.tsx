@@ -135,8 +135,11 @@ export function Navbar({ searchIndex }: { searchIndex: SearchIndexEntry[] }) {
 
             <CtaButton
               href="/contact?subject=listing"
+              variant="soft"
+              plain
+              icon="external"
               size="sm"
-              className="hidden h-11 md:inline-flex"
+              className="hidden h-11 pl-5 text-sm md:inline-flex"
             >
               List your software
             </CtaButton>

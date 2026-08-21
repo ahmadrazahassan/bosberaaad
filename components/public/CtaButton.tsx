@@ -54,6 +54,11 @@ type CommonProps = {
   icon?: "forward" | "external";
   /** Swaps the arrow for a spinner while a form action is in flight. */
   pending?: boolean;
+  /**
+   * Circular chip and a sentence case label. Composes with any variant; the
+   * header pairs it with `soft`.
+   */
+  plain?: boolean;
   className?: string;
   children: React.ReactNode;
 };
@@ -91,6 +96,7 @@ export function CtaButton({
   size = "default",
   arrow = true,
   pending = false,
+  plain = false,
   icon = "forward",
   className,
   children,
@@ -106,6 +112,7 @@ export function CtaButton({
     variant === "soft" && "btn-cta-soft",
     variant === "onDark" && "btn-cta-on-dark",
     variant === "tint" && "btn-cta-tint",
+    plain && "btn-cta-plain",
     SIZES[size].shell,
     "focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--ring)]",
     className,

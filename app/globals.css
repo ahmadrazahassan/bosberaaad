@@ -372,6 +372,25 @@
     0 4px 12px -4px color-mix(in srgb, var(--color-brand-dark) 32%, transparent);
 }
 
+/*
+ * The header capsule. A modifier rather than a variant, because it composes
+ * with one: the header uses it together with .btn-cta-soft.
+ *
+ * Two departures from the primary CTA, both from the reference. The chip is a
+ * full circle instead of a rounded square, and the label drops the uppercase
+ * and the wide tracking. At this size, sitting in a row of sentence case nav
+ * links, spaced capitals read as a shout.
+ */
+.btn-cta-plain {
+  text-transform: none;
+  letter-spacing: -0.005em;
+  font-weight: 500;
+}
+
+.btn-cta-plain .btn-cta-chip {
+  border-radius: 9999px;
+}
+
 /* For panels whose colour is fixed rather than themed, such as the navy
    newsletter band. Those do not flip in dark mode, so neither can the button
    sitting on them. */

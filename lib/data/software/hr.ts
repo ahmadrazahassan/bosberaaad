@@ -1,4 +1,5 @@
 import { defineSoftware } from "./define";
+import { SAGE_AFFILIATE_URL } from "@/lib/affiliates";
 
 const CATEGORY = "cat-hr";
 
@@ -149,6 +150,7 @@ export const HR_SOFTWARE = [
     best_for_size: ["11 to 50 employees", "51 to 200 employees", "201 to 500 employees"],
     best_for_role: ["HR manager", "Business owner", "Office manager"],
     vendor_name: "Sage Group plc",
+    affiliate_url: SAGE_AFFILIATE_URL,
     vendor_website: "https://www.sage.com/en-za/sage-business-cloud/hr/",
     founded_year: 2012,
     support_types: ["Email", "Live chat", "Knowledge base", "Onboarding support"],

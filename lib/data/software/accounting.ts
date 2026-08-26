@@ -1,4 +1,5 @@
 import { defineSoftware } from "./define";
+import { SAGE_AFFILIATE_URL } from "@/lib/affiliates";
 
 const CATEGORY = "cat-accounting";
 
@@ -110,6 +111,7 @@ export const ACCOUNTING_SOFTWARE = [
     best_for_size: ["Sole trader", "2 to 10 employees", "11 to 50 employees"],
     best_for_role: ["Business owner", "Bookkeeper", "Accountant in practice"],
     vendor_name: "Sage Group plc",
+    affiliate_url: SAGE_AFFILIATE_URL,
     vendor_website: "https://www.sage.com/en-za/sage-business-cloud/accounting/",
     founded_year: 1981,
     support_types: ["Telephone", "Email", "Live chat", "Knowledge base", "Partner network"],
@@ -640,6 +642,7 @@ export const ACCOUNTING_SOFTWARE = [
     best_for_size: ["2 to 10 employees", "11 to 50 employees", "51 to 200 employees"],
     best_for_role: ["Bookkeeper", "Financial manager", "Accountant in practice"],
     vendor_name: "Sage Group plc",
+    affiliate_url: SAGE_AFFILIATE_URL,
     vendor_website: "https://www.sage.com/en-za/products/sage-50cloud-pastel/",
     founded_year: 1989,
     support_types: ["Telephone", "Email", "Partner network", "Knowledge base"],
@@ -729,6 +732,7 @@ export const ACCOUNTING_SOFTWARE = [
     best_for_size: ["51 to 200 employees", "201 to 500 employees", "500 plus employees"],
     best_for_role: ["Financial manager", "Group financial director", "Finance systems lead"],
     vendor_name: "Sage Group plc",
+    affiliate_url: SAGE_AFFILIATE_URL,
     vendor_website: "https://www.sage.com/en-za/sage-business-cloud/intacct/",
     founded_year: 1999,
     support_types: ["Partner network", "Telephone", "Email", "Dedicated success manager"],

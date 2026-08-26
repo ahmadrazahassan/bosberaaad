@@ -1,4 +1,5 @@
 import { defineSoftware } from "./define";
+import { SAGE_AFFILIATE_URL } from "@/lib/affiliates";
 
 const CATEGORY = "cat-payroll";
 
@@ -332,6 +333,7 @@ export const PAYROLL_SOFTWARE = [
     best_for_size: ["2 to 10 employees", "11 to 50 employees", "51 to 200 employees"],
     best_for_role: ["Payroll administrator", "Bookkeeper", "Accountant in practice"],
     vendor_name: "Sage Group plc",
+    affiliate_url: SAGE_AFFILIATE_URL,
     vendor_website: "https://www.sage.com/en-za/products/sage-pastel-payroll/",
     founded_year: 1994,
     support_types: ["Telephone", "Email", "Partner network", "Knowledge base"],
@@ -449,6 +451,7 @@ export const PAYROLL_SOFTWARE = [
     best_for_size: ["Sole trader", "2 to 10 employees", "11 to 50 employees"],
     best_for_role: ["Business owner", "Bookkeeper", "Payroll administrator"],
     vendor_name: "Sage Group plc",
+    affiliate_url: SAGE_AFFILIATE_URL,
     vendor_website: "https://www.sage.com/en-za/sage-business-cloud/payroll-1/",
     founded_year: 2015,
     support_types: ["Telephone", "Email", "Live chat", "Knowledge base"],

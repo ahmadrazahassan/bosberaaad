@@ -1,4 +1,5 @@
 import { defineSoftware } from "./define";
+import { SAGE_AFFILIATE_URL } from "@/lib/affiliates";
 
 const CATEGORY = "cat-erp";
 
@@ -90,6 +91,7 @@ export const ERP_SOFTWARE = [
     best_for_size: ["51 to 200 employees", "201 to 500 employees", "11 to 50 employees"],
     best_for_role: ["Financial manager", "Operations director", "Supply chain manager"],
     vendor_name: "Sage Group plc",
+    affiliate_url: SAGE_AFFILIATE_URL,
     vendor_website: "https://www.sage.com/en-za/products/sage-200-evolution/",
     founded_year: 2002,
     support_types: ["Partner network", "Telephone", "Email", "On site training"],
@@ -614,6 +616,7 @@ export const ERP_SOFTWARE = [
     best_for_size: ["201 to 500 employees", "500 plus employees", "51 to 200 employees"],
     best_for_role: ["Operations director", "Production manager", "Group financial director"],
     vendor_name: "Sage Group plc",
+    affiliate_url: SAGE_AFFILIATE_URL,
     vendor_website: "https://www.sage.com/en-za/sage-business-cloud/sage-x3/",
     founded_year: 1979,
     support_types: ["Partner network", "Telephone", "Email", "On site consulting"],

@@ -1,4 +1,5 @@
 import { defineSoftware } from "./define";
+import { SAGE_AFFILIATE_URL } from "@/lib/affiliates";
 
 const CATEGORY = "cat-crm";
 
@@ -704,6 +705,7 @@ export const CRM_SOFTWARE = [
     best_for_size: ["11 to 50 employees", "51 to 200 employees", "201 to 500 employees"],
     best_for_role: ["Sales manager", "Financial manager", "Operations director"],
     vendor_name: "Sage Group plc",
+    affiliate_url: SAGE_AFFILIATE_URL,
     vendor_website: "https://www.sage.com/en-za/products/sage-crm/",
     founded_year: 1998,
     support_types: ["Partner network", "Telephone", "Email", "Knowledge base"],

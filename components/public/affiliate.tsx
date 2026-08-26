@@ -2,13 +2,19 @@ import { InfoIcon } from "lucide-react";
 import Link from "next/link";
 
 import { CtaButton } from "@/components/public/CtaButton";
+import { isNetworkAffiliateLink } from "@/lib/affiliates";
 import type { Software } from "@/lib/types";
 import { cn } from "@/lib/utils";
 
 /**
- * Every commercial link points at the tracking route rather than at the vendor,
- * carries rel="sponsored" and opens in a new tab. There is no undisclosed
- * affiliate link anywhere on this site.
+ * Every commercial link carries rel="sponsored" and opens in a new tab. There
+ * is no undisclosed affiliate link anywhere on this site.
+ *
+ * Where a product has a managed network link, that link is the href, with
+ * nothing in front of it. The network sets its click cookie on that request
+ * and stamps the click id onto the landing URL, and a redirect of ours in the
+ * middle is an extra hop that some networks will not attribute. Everything
+ * else keeps going through /api/track-click.
  */
 export function AffiliateCTAButton({
   software,
@@ -23,9 +29,15 @@ export function AffiliateCTAButton({
   size?: "xs" | "sm" | "default" | "lg";
   variant?: "default" | "tint";
 }) {
+  // Direct for a network link, tracked for a plain vendor site.
+  const direct = isNetworkAffiliateLink(software.affiliate_url);
+  const href = direct
+    ? (software.affiliate_url as string)
+    : `/api/track-click?software=${encodeURIComponent(software.slug)}`;
+
   return (
     <CtaButton
-      href={`/api/track-click?software=${encodeURIComponent(software.slug)}`}
+      href={href}
       target="_blank"
       rel="noopener noreferrer sponsored"
       size={size}

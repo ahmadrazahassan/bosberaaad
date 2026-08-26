@@ -14,7 +14,8 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 
-import { AffiliateDisclosureNote, SponsoredAd } from "@/components/public/affiliate";
+import { AffiliateDisclosureNote } from "@/components/public/affiliate";
+import { SponsoredBanner } from "@/components/public/SponsoredBanner";
 import { AlternativeCard } from "@/components/public/cards";
 import { CompanySizeChart, SoftwareRatingsChart } from "@/components/public/charts";
 import { RatingsCompare } from "@/components/public/compare";
@@ -133,6 +134,9 @@ export default async function SoftwareProfilePage(props: PageProps<"/software/[s
     sections.splice(3, 0, { id: "screenshots", label: "Screenshots" });
   }
 
+  // These creatives are Sage's, so they only run where Sage is the subject.
+  const isSageProduct = software.vendor_name === "Sage Group plc";
+
   const ratingDimensions = RATING_DIMENSIONS.map((dimension) => ({
     dimension: dimension.label,
     value: software[dimension.key],
@@ -236,6 +240,7 @@ export default async function SoftwareProfilePage(props: PageProps<"/software/[s
                 <div className="flex flex-col gap-6 lg:sticky lg:top-40 lg:self-start">
                   <VendorSpecSheet software={software} />
                   <ComplianceList software={software} />
+                  {isSageProduct ? <SponsoredBanner slot="vertical" /> : null}
                 </div>
               </div>
             </section>
@@ -419,8 +424,12 @@ export default async function SoftwareProfilePage(props: PageProps<"/software/[s
               </div>
             </section>
 
-            {/* ------------------------------------------------------- Sponsored */}
-            <SponsoredAd format="billboard" />
+            {/*
+              * Sponsored. Only on the advertiser's own pages: a Sage unit on a
+              * competitor's review would undercut the independence the rest of
+              * the site claims.
+              */}
+            {isSageProduct ? <SponsoredBanner slot="leaderboard" /> : null}
 
             {/* ---------------------------------------------------- Alternatives */}
             {alternatives.items.length > 0 ? (

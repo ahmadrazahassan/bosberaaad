@@ -2,7 +2,7 @@ import { MessageSquareQuoteIcon } from "lucide-react";
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 
-import { SponsoredAd } from "@/components/public/affiliate";
+import { SponsoredBanner } from "@/components/public/SponsoredBanner";
 import { CtaButton } from "@/components/public/CtaButton";
 import { Breadcrumbs, Pagination } from "@/components/public/navigation";
 import { CircularRating, SentimentBar, StarDistributionBars } from "@/components/public/ratings";
@@ -191,7 +191,9 @@ export default async function ReviewArchivePage(
               <StarDistributionBars distribution={distribution} accentColor={accent} />
             </div>
 
-            <SponsoredAd format="halfPage" />
+            {software.vendor_name === "Sage Group plc" ? (
+              <SponsoredBanner slot="halfPage" />
+            ) : null}
           </aside>
         </div>
       </div>

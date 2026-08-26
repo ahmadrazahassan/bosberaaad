@@ -10,6 +10,7 @@ import { NewsletterForm } from "@/components/public/NewsletterForm";
 import { SearchBar } from "@/components/public/SearchBar";
 import { FreshCheckCard, RankedCard, VersusCard } from "@/components/public/home-rows";
 import { GuidesShowcase } from "@/components/public/GuidesShowcase";
+import { SponsoredBanner } from "@/components/public/SponsoredBanner";
 import { ReviewsMarquee, type MarqueeReview } from "@/components/public/ReviewsMarquee";
 import { SectionHeader } from "@/components/public/SectionHeader";
 import { SectionIntro } from "@/components/public/SectionIntro";
@@ -249,6 +250,9 @@ export default async function HomePage() {
         </section>
 
         {/* ---------------------------------------------------------- Top rated */}
+        {/* One unit, once, below the fold. */}
+        <SponsoredBanner slot="leaderboard" className="reveal-on-scroll" />
+
         <section aria-labelledby="top-rated-heading" className="reveal-on-scroll">
           <SectionIntro
             id="top-rated-heading"

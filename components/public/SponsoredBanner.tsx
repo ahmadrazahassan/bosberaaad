@@ -11,6 +11,7 @@ import {
   adPosterUrl,
   type AdSlot,
 } from "@/lib/ads";
+import { withAffiliateContext } from "@/lib/affiliates";
 import { cn } from "@/lib/utils";
 
 /** Below this the narrow creative is used. Matches the sm breakpoint. */
@@ -122,7 +123,9 @@ export function SponsoredBanner({
     };
   }, [creative.id]);
 
-  const href = adClickUrl(creative.id);
+  // Tagged with the slot so a click can be traced back to the unit that
+  // produced it, the same way the text CTAs are.
+  const href = withAffiliateContext(adClickUrl(creative.id), { placement: `banner-${slot}` });
 
   return (
     <aside

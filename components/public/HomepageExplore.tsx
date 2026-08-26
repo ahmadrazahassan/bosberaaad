@@ -134,6 +134,7 @@ export function HomepageExplore({ groups }: { groups: ExploreGroup[] }) {
                     label="Visit website"
                     size="xs"
                     variant="tint"
+                    placement="home-explorer"
                   />
                 </div>
               </article>

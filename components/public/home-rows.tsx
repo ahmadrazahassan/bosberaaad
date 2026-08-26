@@ -212,6 +212,7 @@ export function RankedCard({
             label="Visit website"
             size="xs"
             variant="tint"
+            placement="home-ranked"
           />
         </div>
       </div>
@@ -283,7 +284,13 @@ export function FreshCheckCard({ software }: { software: Software }) {
           <CtaButton href={`/software/${software.slug}`} size="sm">
             Read review
           </CtaButton>
-          <AffiliateCTAButton software={software} label="Visit website" size="xs" variant="tint" />
+          <AffiliateCTAButton
+            software={software}
+            label="Visit website"
+            size="xs"
+            variant="tint"
+            placement="home-fresh"
+          />
         </div>
       </div>
     </article>

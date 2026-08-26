@@ -73,7 +73,7 @@ export function CompareHeader({ a, b }: { a: Software; b: Software }) {
                 </p>
               </div>
 
-              <AffiliateCTAButton software={software} className="w-full" />
+              <AffiliateCTAButton software={software} className="w-full" placement="compare-header" />
             </div>
           );
         })}
@@ -176,8 +176,8 @@ export function CompareStickyBar({ a, b }: { a: Software; b: Software }) {
   return (
     <div className="sticky bottom-0 z-40 border-t border-border bg-background/95 px-4 py-3 backdrop-blur-xl md:hidden">
       <div className="flex items-center gap-2">
-        <AffiliateCTAButton software={a} label={a.name} size="sm" className="flex-1" />
-        <AffiliateCTAButton software={b} label={b.name} size="sm" className="flex-1" />
+        <AffiliateCTAButton software={a} label={a.name} size="sm" className="flex-1" placement="compare-bar" />
+        <AffiliateCTAButton software={b} label={b.name} size="sm" className="flex-1" placement="compare-bar" />
       </div>
     </div>
   );

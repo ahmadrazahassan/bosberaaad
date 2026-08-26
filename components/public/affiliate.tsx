@@ -2,7 +2,7 @@ import { InfoIcon } from "lucide-react";
 import Link from "next/link";
 
 import { CtaButton } from "@/components/public/CtaButton";
-import { isNetworkAffiliateLink } from "@/lib/affiliates";
+import { isNetworkAffiliateLink, withAffiliateContext } from "@/lib/affiliates";
 import type { Software } from "@/lib/types";
 import { cn } from "@/lib/utils";
 
@@ -22,17 +22,28 @@ export function AffiliateCTAButton({
   className,
   size = "default",
   variant = "default",
+  placement,
 }: {
   software: Software;
   label?: string;
   className?: string;
   size?: "xs" | "sm" | "default" | "lg";
   variant?: "default" | "tint";
+  /**
+   * Which surface this button sits on, reported to the network as sharedid.
+   * Without it a click count that looks wrong cannot be traced to a placement.
+   */
+  placement?: string;
 }) {
   // Direct for a network link, tracked for a plain vendor site.
   const direct = isNetworkAffiliateLink(software.affiliate_url);
   const href = direct
-    ? (software.affiliate_url as string)
+    ? withAffiliateContext(software.affiliate_url as string, {
+        // Land on the product the reader was actually reading about, not on
+        // the advertiser's homepage.
+        destination: software.vendor_website,
+        placement,
+      })
     : `/api/track-click?software=${encodeURIComponent(software.slug)}`;
 
   return (

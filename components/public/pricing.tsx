@@ -250,7 +250,7 @@ export function VendorSpecSheet({ software }: { software: Software }) {
       </dl>
 
       <div className="flex flex-col gap-3 border-t border-border pt-5">
-        <AffiliateCTAButton software={software} className="w-full" />
+        <AffiliateCTAButton software={software} className="w-full" placement="profile-pricing" />
         <AffiliateDisclosureNote />
       </div>
     </div>
